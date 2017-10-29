@@ -31,17 +31,6 @@ public class User implements Serializable {
 	@Column
 	private String photo;
 
-	public User(Long id, String name, String login, String password, String email, String phone, String photo) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.login = login;
-		this.password = password;
-		this.email = email;
-		this.phone = phone;
-		this.photo = photo;
-	}
-
 	public Long getId() {
 		return id;
 	}
