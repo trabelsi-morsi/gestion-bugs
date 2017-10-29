@@ -37,12 +37,6 @@ public class Type implements Serializable {
 		this.discription = discription;
 	}
 
-	public Type(Long id, String discription) {
-		super();
-		this.id = id;
-		this.discription = discription;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
