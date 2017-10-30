@@ -5,13 +5,13 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import tn.iit.gestion_bugs.entities.Priority;
 import tn.iit.gestion_bugs.repository.PriorityRepository;
 import tn.iit.gestion_bugs.service.IPriorityService;
 
-@Component
+@Service
 public class PriorityService implements IPriorityService {
 
 	@Autowired
