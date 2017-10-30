@@ -8,53 +8,53 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import tn.iit.gestion_bugs.entities.Priority;
-import tn.iit.gestion_bugs.service.impl.PriorityService;
+import tn.iit.gestion_bugs.entities.ScreenShot;
+import tn.iit.gestion_bugs.service.impl.ScreenShotService;
 
 @Controller
-@RequestMapping("/priority")
-public class PriorityController {
+@RequestMapping("/screenShot")
+public class ScreenShotController {
 
 	@Autowired
-	private PriorityService priorityService;
+	private ScreenShotService screenShotService;
 
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
-		model.addAttribute("allPriorities", priorityService.getAllPriorities());
+		model.addAttribute("allPriorities", screenShotService.getAllScreenShots());
 		return "list";
 	}
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable(name = "id") Long id) {
-		priorityService.delete(id);
-		return "redirect:/priority/list";
+		screenShotService.delete(id);
+		return "redirect:/screenShot/list";
 
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
-		model.addAttribute("action", "addPriority");
+		model.addAttribute("action", "addScreenShot");
 		return "form";
 	}
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
-		model.addAttribute("priority", priorityService.findById(id));
-		model.addAttribute("action", "updatePriority");
+		model.addAttribute("screenShot", screenShotService.findById(id));
+		model.addAttribute("action", "updateScreenShot");
 		return "form";
 
 	}
 
-	@RequestMapping(value = "/addPriority", method = RequestMethod.POST)
-	public String add(@ModelAttribute Priority priority) {
-		priorityService.add(priority);
-		return "redirect:/priority/list";
+	@RequestMapping(value = "/addScreenShot", method = RequestMethod.POST)
+	public String add(@ModelAttribute ScreenShot screenShot) {
+		screenShotService.add(screenShot);
+		return "redirect:/screenShot/list";
 	}
 
-	@RequestMapping(value = "/update/updatePriority", method = RequestMethod.POST)
-	public String update(@ModelAttribute Priority priority) {
-		priorityService.update(priority);
-		return "redirect:/priority/list";
+	@RequestMapping(value = "/update/updateScreenShot", method = RequestMethod.POST)
+	public String update(@ModelAttribute ScreenShot screenShot) {
+		screenShotService.update(screenShot);
+		return "redirect:/screenShot/list";
 	}
 
 }
