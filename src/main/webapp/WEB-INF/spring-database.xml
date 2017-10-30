@@ -43,4 +43,8 @@
         transaction-manager-ref="transactionManager"
         entity-manager-factory-ref="entityManagerFactory" />
 
+	<jpa:repositories base-package="tn.iit.gestion_bugs.repository"
+		transaction-manager-ref="transactionManager"
+		entity-manager-factory-ref="entityManagerFactory" />
+
 </beans>
