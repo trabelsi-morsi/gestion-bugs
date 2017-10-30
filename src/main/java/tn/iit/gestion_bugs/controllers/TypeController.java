@@ -20,41 +20,41 @@ public class TypeController {
 
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
-		model.addAttribute("allPriorities", typeService.getAllType());
+		model.addAttribute("allType", typeService.getAllType());
 		return "list";
 	}
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable(name = "id") Long id) {
 		typeService.delete(id);
-		return "redirect:/priority/list";
+		return "redirect:/type/list";
 
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
-		model.addAttribute("action", "addPriority");
+		model.addAttribute("action", "addType");
 		return "form";
 	}
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
-		model.addAttribute("priority", typeService.findById(id));
-		model.addAttribute("action", "updatePriority");
+		model.addAttribute("type", typeService.findById(id));
+		model.addAttribute("action", "updateType");
 		return "form";
 
 	}
 
-	@RequestMapping(value = "/addPriority", method = RequestMethod.POST)
+	@RequestMapping(value = "/addType", method = RequestMethod.POST)
 	public String add(@ModelAttribute Type type) {
 		typeService.add(type);
-		return "redirect:/priority/list";
+		return "redirect:/type/list";
 	}
 
-	@RequestMapping(value = "/update/updatePriority", method = RequestMethod.POST)
+	@RequestMapping(value = "/update/updateType", method = RequestMethod.POST)
 	public String update(@ModelAttribute Type type) {
 		typeService.update(type);
-		return "redirect:/priority/list";
+		return "redirect:/type/list";
 	}
 
 }

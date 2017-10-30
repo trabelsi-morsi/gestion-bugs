@@ -20,41 +20,41 @@ public class UserController {
 
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
-		model.addAttribute("allPriorities", userService.getAllUsers());
+		model.addAttribute("allUser", userService.getAllUsers());
 		return "list";
 	}
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable(name = "id") Long id) {
 		userService.delete(id);
-		return "redirect:/priority/list";
+		return "redirect:/user/list";
 
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
-		model.addAttribute("action", "addPriority");
+		model.addAttribute("action", "addUser");
 		return "form";
 	}
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
-		model.addAttribute("priority", userService.findById(id));
-		model.addAttribute("action", "updatePriority");
+		model.addAttribute("user", userService.findById(id));
+		model.addAttribute("action", "updateUser");
 		return "form";
 
 	}
 
-	@RequestMapping(value = "/addPriority", method = RequestMethod.POST)
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	public String add(@ModelAttribute User user) {
 		userService.add(user);
-		return "redirect:/priority/list";
+		return "redirect:/user/list";
 	}
 
-	@RequestMapping(value = "/update/updatePriority", method = RequestMethod.POST)
+	@RequestMapping(value = "/update/updateUser", method = RequestMethod.POST)
 	public String update(@ModelAttribute User user) {
 		userService.update(user);
-		return "redirect:/priority/list";
+		return "redirect:/user/list";
 	}
 
 }
