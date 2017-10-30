@@ -31,7 +31,6 @@ public class User implements Serializable {
 	@Column
 	private String photo;
 
-
 	public Long getId() {
 		return id;
 	}
