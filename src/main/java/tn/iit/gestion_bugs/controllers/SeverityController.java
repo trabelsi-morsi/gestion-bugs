@@ -8,53 +8,53 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import tn.iit.gestion_bugs.entities.Priority;
-import tn.iit.gestion_bugs.service.impl.PriorityService;
+import tn.iit.gestion_bugs.entities.Severity;
+import tn.iit.gestion_bugs.service.impl.SeverityService;
 
 @Controller
-@RequestMapping("/priority")
-public class PriorityController {
+@RequestMapping("/serevity")
+public class SeverityController {
 
 	@Autowired
-	private PriorityService priorityService;
+	private SeverityService severityService;
 
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
-		model.addAttribute("allPriorities", priorityService.getAllPriorities());
+		model.addAttribute("allPriorities", severityService.getAllPriorities());
 		return "list";
 	}
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable(name = "id") Long id) {
-		priorityService.delete(id);
-		return "redirect:/priority/list";
+		severityService.delete(id);
+		return "redirect:/severity/list";
 
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
-		model.addAttribute("action", "addPriority");
+		model.addAttribute("action", "addSeverity");
 		return "form";
 	}
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
-		model.addAttribute("priority", priorityService.findById(id));
-		model.addAttribute("action", "updatePriority");
+		model.addAttribute("severity", severityService.findById(id));
+		model.addAttribute("action", "updateSeverity");
 		return "form";
 
 	}
 
-	@RequestMapping(value = "/addPriority", method = RequestMethod.POST)
-	public String add(@ModelAttribute Priority priority) {
-		priorityService.add(priority);
-		return "redirect:/priority/list";
+	@RequestMapping(value = "/addSeverity", method = RequestMethod.POST)
+	public String add(@ModelAttribute Severity severity) {
+		severityService.add(severity);
+		return "redirect:/severity/list";
 	}
 
-	@RequestMapping(value = "/update/updatePriority", method = RequestMethod.POST)
-	public String update(@ModelAttribute Priority priority) {
-		priorityService.update(priority);
-		return "redirect:/priority/list";
+	@RequestMapping(value = "/update/updateSeverity", method = RequestMethod.POST)
+	public String update(@ModelAttribute Severity severity) {
+		severityService.update(severity);
+		return "redirect:/severity/list";
 	}
 
 }

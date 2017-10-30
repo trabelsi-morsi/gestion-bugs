@@ -5,17 +5,13 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import tn.iit.gestion_bugs.entities.Priority;
 import tn.iit.gestion_bugs.repository.PriorityRepository;
 import tn.iit.gestion_bugs.service.IPriorityService;
 
 @Service
-@EnableTransactionManagement
-@EnableJpaRepositories
 public class PriorityService implements IPriorityService {
 
 	@Autowired
