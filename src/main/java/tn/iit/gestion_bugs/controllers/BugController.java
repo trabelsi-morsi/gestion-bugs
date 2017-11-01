@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import tn.iit.gestion_bugs.entities.Bug;
-import tn.iit.gestion_bugs.service.impl.BugService;
+import tn.iit.gestion_bugs.repository.BugRepository;
 
 @Controller
 @RequestMapping("/bug")
 public class BugController {
 
 	@Autowired
-	private BugService bugService;
+	private BugRepository bugRepository;
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
@@ -26,7 +26,7 @@ public class BugController {
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
-		model.addAttribute("Bug", bugService.findById(id));
+		model.addAttribute("Bug", bugRepository.findById(id));
 		model.addAttribute("action", "updateBug");
 		return "form";
 
@@ -34,26 +34,26 @@ public class BugController {
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable(name = "id") Long id) {
-		bugService.delete(id);
+		bugRepository.delete(bugRepository.getOne(id));
 		return "redirect:/bug/list";
 
 	}
 
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
-		model.addAttribute("allBugs", bugService.getAllBugs());
+		model.addAttribute("allBugs", bugRepository.findAll());
 		return "list";
 	}
 
 	@RequestMapping(value = "/addBug", method = RequestMethod.POST)
 	public String add(@ModelAttribute Bug bug) {
-		bugService.add(bug);
+		bugRepository.saveAndFlush(bug);
 		return "redirect:/bug/list";
 	}
 
 	@RequestMapping(value = "/update/updateBug", method = RequestMethod.POST)
 	public String update(@ModelAttribute Bug bug) {
-		bugService.update(bug);
+		bugRepository.save(bug);
 		return "redirect:/bug/list";
 	}
 

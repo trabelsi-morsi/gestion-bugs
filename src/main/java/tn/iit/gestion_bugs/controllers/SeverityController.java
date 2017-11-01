@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import tn.iit.gestion_bugs.entities.Severity;
-import tn.iit.gestion_bugs.service.impl.SeverityService;
+import tn.iit.gestion_bugs.repository.SeverityRepository;
 
 @Controller
 @RequestMapping("/serevity")
 public class SeverityController {
 
 	@Autowired
-	private SeverityService severityService;
+	private SeverityRepository severityRepository;
 
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
-		model.addAttribute("allPriorities", severityService.getAllPriorities());
+		model.addAttribute("allPriorities", severityRepository.findAll());
 		return "list";
 	}
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable(name = "id") Long id) {
-		severityService.delete(id);
+		severityRepository.delete(severityRepository.getOne(id));
 		return "redirect:/severity/list";
 
 	}
@@ -39,7 +39,7 @@ public class SeverityController {
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
-		model.addAttribute("severity", severityService.findById(id));
+		model.addAttribute("severity", severityRepository.getOne(id));
 		model.addAttribute("action", "updateSeverity");
 		return "form";
 
@@ -47,13 +47,13 @@ public class SeverityController {
 
 	@RequestMapping(value = "/addSeverity", method = RequestMethod.POST)
 	public String add(@ModelAttribute Severity severity) {
-		severityService.add(severity);
+		severityRepository.save(severity);
 		return "redirect:/severity/list";
 	}
 
 	@RequestMapping(value = "/update/updateSeverity", method = RequestMethod.POST)
 	public String update(@ModelAttribute Severity severity) {
-		severityService.update(severity);
+		severityRepository.save(severity);
 		return "redirect:/severity/list";
 	}
 
