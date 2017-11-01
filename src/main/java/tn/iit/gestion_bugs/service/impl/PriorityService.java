@@ -14,8 +14,6 @@ import tn.iit.gestion_bugs.repository.PriorityRepository;
 import tn.iit.gestion_bugs.service.IPriorityService;
 
 @Service
-@EnableTransactionManagement
-@EnableJpaRepositories
 public class PriorityService implements IPriorityService {
 
 	@Autowired
