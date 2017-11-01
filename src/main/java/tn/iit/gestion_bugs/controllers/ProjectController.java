@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import tn.iit.gestion_bugs.entities.Project;
-import tn.iit.gestion_bugs.service.impl.ProjectService;
+import tn.iit.gestion_bugs.repository.ProjectRepository;
 
 @Controller
 @RequestMapping("/project")
 public class ProjectController {
 
 	@Autowired
-	private ProjectService projectService;
+	private ProjectRepository projectRepository;
 
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
-		model.addAttribute("allPriorities", projectService.getAllPriorities());
+		model.addAttribute("allPriorities", projectRepository.findAll());
 		return "list";
 	}
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable(name = "id") Long id) {
-		projectService.delete(id);
+		projectRepository.delete(projectRepository.getOne(id));
 		return "redirect:/project/list";
 
 	}
@@ -39,7 +39,7 @@ public class ProjectController {
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
-		model.addAttribute("project", projectService.findById(id));
+		model.addAttribute("project", projectRepository.getOne(id));
 		model.addAttribute("action", "updateProject");
 		return "form";
 
@@ -47,13 +47,13 @@ public class ProjectController {
 
 	@RequestMapping(value = "/addProject", method = RequestMethod.POST)
 	public String add(@ModelAttribute Project project) {
-		projectService.add(project);
+		projectRepository.saveAndFlush(project);
 		return "redirect:/project/list";
 	}
 
 	@RequestMapping(value = "/update/updateProject", method = RequestMethod.POST)
 	public String update(@ModelAttribute Project project) {
-		projectService.update(project);
+		projectRepository.save(project);
 		return "redirect:/project/list";
 	}
 

@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import tn.iit.gestion_bugs.entities.Category;
-import tn.iit.gestion_bugs.service.impl.CategoryService;
+import tn.iit.gestion_bugs.repository.CategoryRepository;
 
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
 
 	@Autowired
-	private CategoryService categoryService;
+	private CategoryRepository categoryRepository;
 
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
-		model.addAttribute("allCategories", categoryService.getAllCategories());
+		model.addAttribute("allCategories", categoryRepository.findAll());
 		return "list";
 	}
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable(name = "id") Long id) {
-		categoryService.delete(id);
+		categoryRepository.delete(categoryRepository.getOne(id));
 		return "redirect:/category/list";
 
 	}
@@ -39,7 +39,7 @@ public class CategoryController {
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
-		model.addAttribute("category", categoryService.findById(id));
+		model.addAttribute("category", categoryRepository.getOne(id));
 		model.addAttribute("action", "updateCategory");
 		return "form";
 
@@ -47,13 +47,13 @@ public class CategoryController {
 
 	@RequestMapping(value = "/addCategory", method = RequestMethod.POST)
 	public String add(@ModelAttribute Category category) {
-		categoryService.add(category);
+		categoryRepository.saveAndFlush(category);
 		return "redirect:/category/list";
 	}
 
 	@RequestMapping(value = "/update/updateCategory", method = RequestMethod.POST)
 	public String update(@ModelAttribute Category category) {
-		categoryService.update(category);
+		categoryRepository.save(category);
 		return "redirect:/category/list";
 	}
 
