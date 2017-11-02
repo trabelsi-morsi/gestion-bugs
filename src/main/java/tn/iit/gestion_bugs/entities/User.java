@@ -30,7 +30,12 @@ public class User implements Serializable {
 	private String phone;
 	@Column
 	private String photo;
-
+//
+//	@OneToMany(mappedBy = "user")
+//	private List<Bug> bugs;
+	
+//	@OneToMany(mappedBy = "user")
+//	private List<Type> types;
 	public Long getId() {
 		return id;
 	}

@@ -21,6 +21,11 @@ public class Type implements Serializable {
 	@Column
 	private String discription;
 
+//	@ManyToOne
+//	@JoinColumn(name = "user_id")
+//	private User user;
+	
+	
 	public Long getId() {
 		return id;
 	}

@@ -24,6 +24,10 @@ public class ScreenShot implements Serializable {
 	@Column
 	private String photo;
 
+//	@ManyToOne
+//	@JoinColumn(name = "bug_id")
+//	private Bug bug;
+//	
 	public Long getId() {
 		return id;
 	}

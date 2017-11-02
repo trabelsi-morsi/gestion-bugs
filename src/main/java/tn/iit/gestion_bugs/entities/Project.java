@@ -2,12 +2,14 @@ package tn.iit.gestion_bugs.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Project implements Serializable{
@@ -25,6 +27,10 @@ public class Project implements Serializable{
 	private String description;
 	@Column
 	private Date date;
+	
+	@OneToMany(mappedBy = "project")
+	private List<Bug> bugs;
+
 	public Long getId() {
 		return id;
 	}

@@ -1,5 +1,6 @@
 package tn.iit.gestion_bugs.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -7,9 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Bug {
+public class Bug implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
@@ -27,8 +34,32 @@ public class Bug {
 	@Column
 	private String feedback;
 	@Column
-	private boolean isDeleted; 
+	private boolean isDeleted;
+	
+	@ManyToOne
+	@JoinColumn(name = "severity_id")
+	private Severity severity;
+	
 
+	@ManyToOne
+	@JoinColumn(name = "priority_id")
+	private Priority priority;
+	
+	@ManyToOne
+	@JoinColumn(name = "project_id")
+	private Project project;
+
+	@ManyToOne
+	@JoinColumn(name = "status_id")
+	private Status status;
+
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+
+//	@OneToMany(mappedBy = "bug")
+//	private List<ScreenShot> screenShots;
 
 	public boolean isDeleted() {
 		return isDeleted;
@@ -118,6 +149,5 @@ public class Bug {
 			return false;
 		return true;
 	}
-	
 
 }
