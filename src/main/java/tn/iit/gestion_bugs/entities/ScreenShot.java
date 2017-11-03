@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class ScreenShot implements Serializable {
@@ -23,6 +25,10 @@ public class ScreenShot implements Serializable {
 	private String name;
 	@Column
 	private String photo;
+
+	@ManyToOne
+	@JoinColumn(name = "bug_id")
+	private Bug bug;
 
 	public Long getId() {
 		return id;
@@ -48,13 +54,19 @@ public class ScreenShot implements Serializable {
 		this.photo = photo;
 	}
 
+	public Bug getBug() {
+		return bug;
+	}
+
+	public void setBug(Bug bug) {
+		this.bug = bug;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((photo == null) ? 0 : photo.hashCode());
 		return result;
 	}
 
@@ -71,16 +83,6 @@ public class ScreenShot implements Serializable {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (photo == null) {
-			if (other.photo != null)
-				return false;
-		} else if (!photo.equals(other.photo))
 			return false;
 		return true;
 	}

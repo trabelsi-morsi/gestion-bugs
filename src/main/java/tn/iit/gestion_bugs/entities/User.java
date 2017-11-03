@@ -1,12 +1,16 @@
 package tn.iit.gestion_bugs.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User implements Serializable {
@@ -30,6 +34,13 @@ public class User implements Serializable {
 	private String phone;
 	@Column
 	private String photo;
+
+	@OneToMany(mappedBy = "user")
+	private List<Bug> bugs;
+
+	@ManyToOne
+	@JoinColumn(name = "type_id")
+	private Type type;
 
 	public Long getId() {
 		return id;
@@ -85,6 +96,22 @@ public class User implements Serializable {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public List<Bug> getBugs() {
+		return bugs;
+	}
+
+	public void setBugs(List<Bug> bugs) {
+		this.bugs = bugs;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
 	}
 
 	@Override

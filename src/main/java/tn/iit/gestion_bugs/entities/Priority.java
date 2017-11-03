@@ -1,12 +1,14 @@
 package tn.iit.gestion_bugs.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Priority implements Serializable {
@@ -23,6 +25,9 @@ public class Priority implements Serializable {
 	private String title;
 	@Column
 	private String color;
+
+	@OneToMany(mappedBy = "priority")
+	private List<Bug> bugs;
 
 	public Long getId() {
 		return id;
@@ -46,6 +51,14 @@ public class Priority implements Serializable {
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public List<Bug> getBugs() {
+		return bugs;
+	}
+
+	public void setBugs(List<Bug> bugs) {
+		this.bugs = bugs;
 	}
 
 	@Override
