@@ -53,6 +53,14 @@ public class Priority implements Serializable {
 		this.color = color;
 	}
 
+	public List<Bug> getBugs() {
+		return bugs;
+	}
+
+	public void setBugs(List<Bug> bugs) {
+		this.bugs = bugs;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -23,7 +23,7 @@ public class Status implements Serializable {
 	private String title;
 	@Column
 	private String description;
-	
+
 	@OneToMany(mappedBy = "status")
 	private List<Bug> bugs;
 
@@ -49,6 +49,14 @@ public class Status implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<Bug> getBugs() {
+		return bugs;
+	}
+
+	public void setBugs(List<Bug> bugs) {
+		this.bugs = bugs;
 	}
 
 	@Override

@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-
 @Entity
 public class Severity implements Serializable {
 
@@ -31,6 +30,14 @@ public class Severity implements Serializable {
 
 	@OneToMany(mappedBy = "severity")
 	private List<Bug> bugs;
+
+	public List<Bug> getBugs() {
+		return bugs;
+	}
+
+	public void setBugs(List<Bug> bugs) {
+		this.bugs = bugs;
+	}
 
 	public Long getId() {
 		return id;

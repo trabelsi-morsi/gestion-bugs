@@ -2,6 +2,7 @@ package tn.iit.gestion_bugs.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,9 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Bug implements Serializable{
+public class Bug implements Serializable {
 	/**
 	 * 
 	 */
@@ -35,16 +37,19 @@ public class Bug implements Serializable{
 	private String feedback;
 	@Column
 	private boolean isDeleted;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	private Category category;
+
 	@ManyToOne
 	@JoinColumn(name = "severity_id")
 	private Severity severity;
-	
 
 	@ManyToOne
 	@JoinColumn(name = "priority_id")
 	private Priority priority;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "project_id")
 	private Project project;
@@ -53,13 +58,12 @@ public class Bug implements Serializable{
 	@JoinColumn(name = "status_id")
 	private Status status;
 
-
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
 
-//	@OneToMany(mappedBy = "bug")
-//	private List<ScreenShot> screenShots;
+	@OneToMany(mappedBy = "bug")
+	private List<ScreenShot> screenShots;
 
 	public boolean isDeleted() {
 		return isDeleted;
@@ -123,6 +127,62 @@ public class Bug implements Serializable{
 
 	public void setFeedback(String feedback) {
 		this.feedback = feedback;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Severity getSeverity() {
+		return severity;
+	}
+
+	public void setSeverity(Severity severity) {
+		this.severity = severity;
+	}
+
+	public Priority getPriority() {
+		return priority;
+	}
+
+	public void setPriority(Priority priority) {
+		this.priority = priority;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<ScreenShot> getScreenShots() {
+		return screenShots;
+	}
+
+	public void setScreenShots(List<ScreenShot> screenShots) {
+		this.screenShots = screenShots;
 	}
 
 	@Override
