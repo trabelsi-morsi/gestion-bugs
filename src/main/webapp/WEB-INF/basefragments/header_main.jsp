@@ -122,7 +122,7 @@
                             </div>
                         </li>
                         <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
-                            <a href="#" class="user_action_image"><img class="md-user-image" style=" background: #ececec; " src="../resources/assets/img/avatars/user.png" alt=""/></a>
+                            <a href="#" class="user_action_image"><img class="md-user-image" style=" background: #ececec; " src="./resources/assets/img/avatars/user.png" alt=""/></a>
                             <div class="uk-dropdown uk-dropdown-small">
                                 <ul class="uk-nav js-uk-prevent">
                                     <li><a href="page_user_profile.html">My profile</a></li>
