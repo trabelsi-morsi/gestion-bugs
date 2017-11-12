@@ -16,7 +16,8 @@
                 <div class="uk-navbar-flip">
                     <ul class="uk-navbar-nav user_actions">  
                         <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
-                            <a href="#" class="user_action_icon"><i class="material-icons md-24 md-light" style=" margin-top: 8px; ">&#xE7F4;</i><span class="uk-badge">16</span></a>
+                            <a href="#" class="user_action_icon"><i class="material-icons md-24 md-light" style=" margin-top: 8px; ">&#xE7F4;</i>
+                            <span class="uk-badge">16</span></a>
                             <div class="uk-dropdown uk-dropdown-xlarge">
                                 <div class="md-card-content">
                                     <ul class="uk-tab uk-tab-grid" data-uk-tab="{connect:'#header_alerts',animation:'slide-horizontal'}">
@@ -121,7 +122,7 @@
                             </div>
                         </li>
                         <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
-                            <a href="#" class="user_action_image"><img class="md-user-image" style=" background: #ececec; " src="./resources/assets/img/avatars/user.png" alt=""/></a>
+                            <a href="#" class="user_action_image"><img class="md-user-image" style=" background: #ececec; " src="../resources/assets/img/avatars/user.png" alt=""/></a>
                             <div class="uk-dropdown uk-dropdown-small">
                                 <ul class="uk-nav js-uk-prevent">
                                     <li><a href="page_user_profile.html">My profile</a></li>
@@ -141,3 +142,5 @@
                 <button class="header_main_search_btn uk-button-link"><i class="md-icon material-icons">&#xE8B6;</i></button>
             </form>
         </div>
+        
+        
