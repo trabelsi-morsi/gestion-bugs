@@ -1,18 +1,47 @@
- 
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %> 
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+
+<%
+ String menuval=request.getContextPath().toString();
+%>
+
      <div class="sidebar_main_header" style=" height: 114px;">
             <div class="sidebar_logo" style="height: 164px;/* line-height: 66px; */">
                 <a href="index.html" class="sSidebar_hide" style="margin: 0 auto;display: block;">
-                <img src="./resources/assets/img/logo.png" alt="" height="15" width="71" class="" style="margin: 0 auto;display: block;margin-top: 12px;width: 100px;"></a>
-                <a href="index.html" class="sSidebar_show"><img src="./resources/assets/img/logo.png" alt="" height="32" width="32" class=""></a>
+                <img src="<%=menuval%>/resources/assets/img/logo.png" alt="" height="15" width="71" class="" style="margin: 0 auto;display: block;margin-top: 12px;width: 100px;"></a>
+                <a href="index.html" class="sSidebar_show"><img src="<%=menuval%>/resources/assets/img/logo.png" alt="" height="32" width="32" class=""></a>
             </div>
          
         </div>
         
  <div class="menu_section">
 		 <ul>
-		 
+		 	 <li  class="current_section">
+                    <a href="#">
+                        <span class="menu_icon">   
+                        <i class="material-icons" style=" margin-top: -16px; ">&#xE84E;</i></span>
+                       <span class="menu_title">Type</span>
+                    </a>
+                    <ul>
+ 						<li><a   href="<%=menuval%>/type/add" >Add Type</a></li>
+                     	<li><a  href="<%=menuval%>/type/list">List Type</a></li> 
+                    </ul>
+                </li>
+                
+			   <li>
+                    <a href="#">
+                        <span class="menu_icon">  
+                        <i class="material-icons" style=" margin-top: -16px; ">&#xE8D3;</i></span>
+                        <span class="menu_title">User</span>
+                    </a>
+                    <ul>
+                        <li><a  onclick="<%=menuval%>/user/add">Add User</a></li>
+                        <li><a  onclick="<%=menuval%>/user/add">List User</a></li> 
+                    </ul>
+                </li>
+		 <!--  
                  <li title="Dashboard">
-<%--                     <a href="<c:set var="varmenu" value="/type/add" />"> --%>
                     <a href="">
                         <span class="menu_icon"><i class="material-icons" style=" margin-top: -16px; ">&#xE871;</i></span>
                         <span class="menu_title">Home</span>
@@ -52,7 +81,7 @@
                         <span class="menu_title">crud table</span>
                     </a>
                 </li>
-        	 
+        	 -->
         
 		  </ul>
         </div>
