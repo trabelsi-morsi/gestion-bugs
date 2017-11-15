@@ -15,11 +15,18 @@
 			<jsp:include page="../../basefragments/menu.jsp" flush="true"/>
      </jsp:attribute>
     
-     
+      <jsp:attribute name="footer">
+			<script>
+			function viewphotomodel(val)
+			{
+				document.getElementById("zoneimage").src = val;
+			}
+			</script>
+    </jsp:attribute>
      
     <jsp:body>
         
-     <h3 class="heading_b uk-margin-bottom">List Type</h3>
+     <h3 class="heading_b uk-margin-bottom">List User</h3>
      <div class="md-card">
          <div class="md-card-content">
          
@@ -30,17 +37,32 @@
 					      <thead>
 					          <tr>
 					              <th class="uk-text-center">ID</th>
-					              <th>Description</th>
-					             
+					             	 <th> Name</th>
+					             	 <th> Login</th>
+									 <th>Password</th>
+									 <th> Email</th>
+									 <th> Phone</th>
+									 <th> Photo</th>
 					              <th class="filter-false remove sorter-false uk-text-center" colspan="2" style="width: 50px;">Actions</th>
 					          </tr>
 					      </thead>
 					    <tbody>
 					
-							<c:forEach var="u" items="${allType}">
+							<c:forEach var="u" items="${allUser}">
 								<tr>
 									<td class="uk-text-center"><span class="uk-text-small uk-text-muted uk-text-nowrap"><c:out value="${u.id}" /></span></td>
-									<td class="uk-text-small"><c:out value="${u.description}" /></td> 
+									<td class="uk-text-small"><c:out value="${u.name}" /></td> 
+									<td class="uk-text-small"><c:out value="${u.login}" /></td> 
+									<td class="uk-text-small"><c:out value="${u.password}" /></td> 
+									<td class="uk-text-small"><c:out value="${u.email}" /></td> 
+									<td class="uk-text-small"><c:out value="${u.phone}" /></td> 
+									<td class="uk-text-small">
+										<div class="chat_user_avatar" onclick="viewphotomodel('<c:out value="${u.photo}"/>')" data-uk-modal="{target:'#modal_lightbox'}">
+                                           <img class="md-user-image" src="<c:out value="${u.photo}" />" alt="<c:out value="${u.name}" />" style=" width: 50px; ">
+                                       </div>
+                                       
+                                       
+                                    </td> 
 									<td style="width: 50px;"><a  href="update/<c:out value="${u.id}" />" class="ts_remove_row"><i class="md-icon material-icons">&#xE22B;</i></a></td>
 									<td style="width: 50px;"><a onclick="UIkit.modal.confirm('Are you sure ?',  function(){   window.location.assign('delete/<c:out value="${u.id}"/>') });" class="ts_remove_row"><i class="md-icon material-icons"></i></a>
 									</td>
@@ -49,6 +71,13 @@
 					
 					    </tbody>
 					</table>
+					
+					 <div class="uk-modal" id="modal_lightbox">
+                           <div class="uk-modal-dialog uk-modal-dialog-lightbox">
+                               <button type="button" class="uk-modal-close uk-close uk-close-alt"></button>
+                               <img src="" id="zoneimage"/>
+                           </div>
+                       </div>
 				
 				</div>
 		           <ul class="uk-pagination ts_pager">

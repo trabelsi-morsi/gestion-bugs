@@ -4,15 +4,22 @@
 <%@attribute name="css" fragment="true" %>
 <%@attribute name="menu" fragment="true" %>
  
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+ 
 <%
  String menuval=request.getContextPath().toString();
 %>
 <html>
 <head>
 
+   <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no"/>
 
+    <link rel="icon" type="image/png" href="<%=menuval%>/resources/assets/img/logo.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="<%=menuval%>/resources/assets/img/logo.png" sizes="32x32">
+
+    <title>Gestion Bugs</title>
 
   <link rel="stylesheet" href="<%=menuval%>/resources/bower_components/uikit/css/uikit.almost-flat.min.css" media="all">
 			    <link rel="stylesheet" href="<%=menuval%>/resources/assets/icons/flags/flags.min.css" media="all">
@@ -36,7 +43,6 @@
     </div>
     
     <div id="pagefooter">
-      <jsp:invoke fragment="footer"/>
       		<script src="<%=menuval%>/resources/assets/js/common.min.js"></script>
 		    <!-- uikit functions -->
 		    <script src="<%=menuval%>/resources/assets/js/uikit_custom.min.js"></script>
@@ -50,7 +56,9 @@
 		    <script src="<%=menuval%>/resources/assets/js/pages/pages_issues.min.js"></script>
 		    <!--  tablesorter functions -->
 		    <script src="<%=menuval%>/resources/assets/js/pages/plugins_tablesorter.min.js"></script>
-		    <script src="<%=menuval%>/resources/js/redirectpage.js"></script>
+		    <script src="<%=menuval%>/resources/assets/js/pages/components_notifications.min.js"></script>
+		    <script src="<%=menuval%>/resources/assets/js/pages/forms_file_upload.min.js"></script>
+     	<jsp:invoke fragment="footer"/>
     </div>
     
     

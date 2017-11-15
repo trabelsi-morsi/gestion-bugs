@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %> 
  
 <t:Layout> 
@@ -10,7 +9,7 @@
 	  </jsp:attribute>
   
     <jsp:attribute name="header">
-        <%@include  file="WEB-INF/basefragments/header_main.jsp" %>
+        <jsp:include page="WEB-INF/basefragments/header_main.jsp" flush="true"/>
     </jsp:attribute>
     
     

@@ -16,7 +16,7 @@
     
     <jsp:body>
     
-   			<h3 class="heading_b uk-margin-bottom">Add Type</h3>
+   			<h3 class="heading_b uk-margin-bottom">Edit Type</h3>
             <div class="md-card">
 				<div class="md-card-content large-padding">
 					<form id="form_validation" class="uk-form-stacked" method="post" action="updateType">

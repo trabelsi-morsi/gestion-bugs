@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %> 
+<%@  taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
  
 <t:Layout> 
 
@@ -15,6 +15,9 @@
 			<jsp:include page="../../basefragments/menu.jsp" flush="true"/>
      </jsp:attribute>
     
+        
+  
+     
     <jsp:body>
         
 <%--             <jsp:include page="views/type/form" /> --%>
@@ -22,7 +25,7 @@
 
             <div class="md-card">
                 <div class="md-card-content large-padding">
-                    <form id="form_validation" class="uk-form-stacked" method="post" action=" ">
+                    <form id="form_validation" class="uk-form-stacked" method="post" action="<c:out value="${action}" />">
                         <div class="uk-grid data-uk-grid-margin">
                             <div class="uk-width-large-1-1">
                                 <div class="parsley-row">

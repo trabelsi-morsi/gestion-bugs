@@ -17,7 +17,7 @@
         
  <div class="menu_section">
 		 <ul>
-		 	 <li  class="current_section">
+		 	 <li>
                     <a href="#">
                         <span class="menu_icon">   
                         <i class="material-icons" style=" margin-top: -16px; ">&#xE84E;</i></span>
@@ -36,8 +36,8 @@
                         <span class="menu_title">User</span>
                     </a>
                     <ul>
-                        <li><a  onclick="<%=menuval%>/user/add">Add User</a></li>
-                        <li><a  onclick="<%=menuval%>/user/add">List User</a></li> 
+                        <li><a  href="<%=menuval%>/user/add">Add User</a></li>
+                        <li><a  href="<%=menuval%>/user/list">List User</a></li> 
                     </ul>
                 </li>
 		 <!--  

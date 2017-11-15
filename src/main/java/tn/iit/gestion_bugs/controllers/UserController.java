@@ -1,5 +1,7 @@
 package tn.iit.gestion_bugs.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import tn.iit.gestion_bugs.entities.Type;
 import tn.iit.gestion_bugs.entities.User;
 import tn.iit.gestion_bugs.repository.UserRepository;
 
@@ -21,7 +24,7 @@ public class UserController {
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
 		model.addAttribute("allUser", userRepository.findAll());
-		return "list";
+		return "/user/list";
 	}
 
 	@RequestMapping(value = "delete/{id}")
@@ -34,14 +37,15 @@ public class UserController {
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
 		model.addAttribute("action", "addUser");
-		return "form";
+		return "/user/form";
 	}
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
-		model.addAttribute("user", userRepository.getOne(id));
+		Optional<User> user = userRepository.findById(id);
+		model.addAttribute("user", user.get());
 		model.addAttribute("action", "updateUser");
-		return "form";
+		return "/user/update";
 
 	}
 
