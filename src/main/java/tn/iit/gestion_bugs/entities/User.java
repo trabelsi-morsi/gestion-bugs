@@ -34,6 +34,8 @@ public class User implements Serializable {
 	private String phone;
 	@Column
 	private String photo;
+	@Column
+	private String role;
 
 	@OneToMany(mappedBy = "user")
 	private List<Bug> bugs;
@@ -96,6 +98,15 @@ public class User implements Serializable {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+	
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public List<Bug> getBugs() {
