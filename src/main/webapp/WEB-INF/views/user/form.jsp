@@ -25,7 +25,7 @@
 
             <div class="md-card">
                 <div class="md-card-content large-padding">
-                    <form id="form_validation" class="uk-form-stacked" method="post" action="<c:out value="${action}" />">
+                    <form enctype="multipart/form-data" id="form_validation" class="uk-form-stacked" method="post" action="<c:out value="${action}" />">
                         
                         <div class="uk-grid" data-uk-grid-margin>
                             <div class="uk-width-medium-1-2">
@@ -71,7 +71,7 @@
                               <div class="uk-width-medium-1-2">
 	                            <div class="uk-form-file md-btn md-btn-primary" style=" width: 200px; ">
 	                               <i class="material-icons"  style="color:white;width: 40px;">&#xE413;</i>Upload Photo
-	                                <input id="form-file" type="file" name="photo">
+	                                <input id="form-file" type="file" name="photoFile">
 	                            </div> 
 	                        </div>
                         
