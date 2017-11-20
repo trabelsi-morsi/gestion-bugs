@@ -36,7 +36,10 @@
 	<mvc:resources mapping="/resources/**" location="/resources/"
 		cache-period="31556926" />
 
-
+	<mvc:resources mapping="/gestion-bugs/**" location="C:/gestion-bugs/"
+		cache-period="31556926" />
+		
+		
 	<mvc:annotation-driven />
 
 

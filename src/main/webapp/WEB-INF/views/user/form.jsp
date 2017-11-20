@@ -25,7 +25,7 @@
 
             <div class="md-card">
                 <div class="md-card-content large-padding">
-                    <form enctype="multipart/form-data" id="form_validation" class="uk-form-stacked" method="post" action="<c:out value="${action}" />">
+                    <form enctype="multipart/form-data" id="form_validation" class="uk-form-stacked" method="post" action="addOrUpdateUser">
                         
                         <div class="uk-grid" data-uk-grid-margin>
                             <div class="uk-width-medium-1-2">

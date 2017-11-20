@@ -57,8 +57,8 @@
 									<td class="uk-text-small"><c:out value="${u.email}" /></td> 
 									<td class="uk-text-small"><c:out value="${u.phone}" /></td> 
 									<td class="uk-text-small">
-										<div class="chat_user_avatar" onclick="viewphotomodel('<c:out value="${u.photo}"/>')" data-uk-modal="{target:'#modal_lightbox'}">
-                                           <img class="md-user-image" src="<c:out value="${u.photo}" />" alt="<c:out value="${u.name}" />" style=" width: 50px; ">
+										<div class="chat_user_avatar" onclick="viewphotomodel('C:/gestion-bugs/User/<c:out value="${u.photo}"/>')" data-uk-modal="{target:'#modal_lightbox'}">
+                                           <img class="md-user-image" src="file:///C:/gestion-bugs/User/UseCasePFA3.png" alt="<c:out value="${u.name}" />" style=" width: 50px; ">
                                        </div>
                                        
                                        

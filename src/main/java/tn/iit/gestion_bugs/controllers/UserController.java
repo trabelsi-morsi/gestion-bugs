@@ -23,7 +23,7 @@ import tn.iit.gestion_bugs.repository.UserRepository;
 @RequestMapping("/user")
 public class UserController {
 
-	private static String FOLDER = "C://uploaded-images//";
+	private static String FOLDER = "C://gestion-bugs//User//";
 
 	@Autowired
 	private UserRepository userRepository;
@@ -43,7 +43,6 @@ public class UserController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
-		model.addAttribute("action", "addUser");
 		return "/user/form";
 	}
 
@@ -51,32 +50,40 @@ public class UserController {
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
 		Optional<User> user = userRepository.findById(id);
 		model.addAttribute("user", user.get());
-		model.addAttribute("action", "updateUser");
 		return "/user/update";
 
 	}
 
-	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public String add(@ModelAttribute User user, @RequestParam("photoFile") MultipartFile file) {
-		user.setPhoto(file.getOriginalFilename());
+	@RequestMapping(value = "/addOrUpdateUser", method = RequestMethod.POST)
+	public String addOrUpdate(@ModelAttribute User user, @RequestParam("photoFile") MultipartFile file) {
+
+		if (!file.isEmpty() && file != null) {
+			// check if the new image is different
+			if (user.getPhoto() != file.getOriginalFilename()) {
+				// delete the old image if it's not the same
+				try {
+					Files.deleteIfExists(Paths.get(FOLDER + user.getPhoto()));
+
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				// update the image name
+				user.setPhoto(file.getOriginalFilename());
+
+				// write the new image
+				try {
+					byte[] bytes = file.getBytes();
+					Path path = Paths.get(FOLDER + file.getOriginalFilename());
+					Files.write(path, bytes);
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		// insert or update the user
 		userRepository.saveAndFlush(user);
 
-		try {
-			byte[] bytes = file.getBytes();
-			Path path = Paths.get(FOLDER + file.getOriginalFilename());
-			Files.write(path, bytes);
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return "redirect:/user/list";
-	}
-
-	@RequestMapping(value = "/update/updateUser", method = RequestMethod.POST)
-	public String update(@ModelAttribute User user) {
-		userRepository.save(user);
 		return "redirect:/user/list";
 	}
 

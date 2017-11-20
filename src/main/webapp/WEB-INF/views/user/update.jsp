@@ -34,9 +34,9 @@
    			<h3 class="heading_b uk-margin-bottom">Edit Type</h3>
             <div class="md-card">
 				<div class="md-card-content large-padding">
-					<form id="form_validation" class="uk-form-stacked" method="post" action="updateUser">
+					<form enctype="multipart/form-data" id="form_validation" class="uk-form-stacked" method="post" action="../addOrUpdateUser">
 					   
-						 
+						 <input type="hidden" name="id"  class="md-input" value="<c:out value="${user.id}" />" />
                         <div class="uk-grid" data-uk-grid-margin>
                             <div class="uk-width-medium-1-2">
                                 <div class="parsley-row">
@@ -86,7 +86,8 @@
                                     
 		                            <div class="uk-form-file md-btn md-btn-primary" style=" width: 200px; ">
 		                               <i class="material-icons"  style="color:white;width: 40px;">&#xE413;</i>Upload Photo
-		                                <input id="form-file" type="file" name="photo">
+		                                <input id="form-file" type="file" name="photoFile" >
+		                                <input type="hidden" name="photo" value="<c:out value="${user.photo}" />"  />
 		                            </div> 
 	                        </div>
                         
