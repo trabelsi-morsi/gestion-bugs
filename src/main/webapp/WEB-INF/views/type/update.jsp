@@ -19,12 +19,13 @@
    			<h3 class="heading_b uk-margin-bottom">Edit Type</h3>
             <div class="md-card">
 				<div class="md-card-content large-padding">
-					<form id="form_validation" class="uk-form-stacked" method="post" action="updateType">
+					<form id="form_validation" class="uk-form-stacked" method="post" action="../addOrUpdateType">
+						<input type="hidden" name="id" value="${type.id}" />
 					                 <div class="uk-grid data-uk-grid-margin">
 					                     <div class="uk-width-large-1-1">
 					                         <div class="parsley-row">
 					                             <label for="fullname">Description<span class="req">*</span></label>
-					   <textarea cols="30" rows="4" class="md-input"  name="description"  ><c:out value="${type.description}" /></textarea> 
+					   <textarea cols="30" rows="4" class="md-input"  name="description"  >${type.description}</textarea> 
 					            </div>
 					        </div> 
 					    </div> 

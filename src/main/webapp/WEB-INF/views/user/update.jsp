@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %> 
-<%@  taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
+<%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <t:Layout> 
 
 
@@ -36,19 +36,19 @@
 				<div class="md-card-content large-padding">
 					<form enctype="multipart/form-data" id="form_validation" class="uk-form-stacked" method="post" action="../addOrUpdateUser">
 					   
-						 <input type="hidden" name="id"  class="md-input" value="<c:out value="${user.id}" />" />
+						 <input type="hidden" name="id"  class="md-input" value="${user.id}"  />
                         <div class="uk-grid" data-uk-grid-margin>
                             <div class="uk-width-medium-1-2">
                                 <div class="parsley-row">
                                     <label for="fullname">Name<span class="req">*</span></label>
-                                    <input type="text" name="name" required class="md-input" value="<c:out value="${user.name}" />" />
+                                    <input type="text" name="name" required class="md-input" value="${user.name}"  />
                                 </div>
                             </div>
                             
                              <div class="uk-width-medium-1-2">
                                 <div class="parsley-row">
                                     <label for="fullname">Login<span class="req">*</span></label>
-                                    <input type="text" name="login" required class="md-input" value="<c:out value="${user.login}" />" />
+                                    <input type="text" name="login" required class="md-input" value="${user.login}"  />
                                 </div>
                             </div>
                            
@@ -58,14 +58,14 @@
                             <div class="uk-width-medium-1-2">
                                 <div class="parsley-row">
                                     <label for="email">Phone<span class="req">*</span></label>
-                                    <input type="text" name="phone"  required  class="md-input" value="<c:out value="${user.phone}" />"/>
+                                    <input type="text" name="phone"  required  class="md-input" value="${user.phone}" />
                                 </div>
                             </div>
                             
                              <div class="uk-width-medium-1-2">
                                 <div class="parsley-row">
                                     <label for="fullname">Password<span class="req">*</span></label>
-                                    <input type="text" name="password" required class="md-input" value="<c:out value="${user.password}" />"/>
+                                    <input type="text" name="password" required class="md-input" value="${user.password}" />
                                 </div>
                             </div>
                             
@@ -75,19 +75,19 @@
                             <div class="uk-width-medium-1-2">
                                 <div class="parsley-row">
                                     <label for="email">Email<span class="req">*</span></label>
-                                    <input type="email" name="email" data-parsley-trigger="change" required  class="md-input" value="<c:out value="${user.email}" />"/>
+                                    <input type="email" name="email" data-parsley-trigger="change" required  class="md-input" value="${user.email}" />
                                 </div>
                             </div>
                               
                              <div class="uk-width-medium-1-2">
-	                              <div class="md-card-head-avatar"   onclick="viewphotomodel('<c:out value="${user.photo}"/>')"  data-uk-modal="{target:'#modal_lightbox'}">
-	                                   <img class="md-user-image" src="<c:out value="${user.photo}" />" alt="<c:out value="${user.name}" />" id="styleimage">
+	                              <div class="md-card-head-avatar"   onclick="viewphotomodel('${user.photo}')"  data-uk-modal="{target:'#modal_lightbox'}">
+	                                   <img class="md-user-image" src="${user.photo}"  alt="${user.name}"  id="styleimage">
 	                               </div>
                                     
 		                            <div class="uk-form-file md-btn md-btn-primary" style=" width: 200px; ">
 		                               <i class="material-icons"  style="color:white;width: 40px;">&#xE413;</i>Upload Photo
 		                                <input id="form-file" type="file" name="photoFile" >
-		                                <input type="hidden" name="photo" value="<c:out value="${user.photo}" />"  />
+		                                <input type="hidden" name="photo" value="${user.photo}"   />
 		                            </div> 
 	                        </div>
                         

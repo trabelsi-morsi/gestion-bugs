@@ -25,7 +25,7 @@
 
             <div class="md-card">
                 <div class="md-card-content large-padding">
-                    <form id="form_validation" class="uk-form-stacked" method="post" action="<c:out value="${action}" />">
+                    <form id="form_validation" class="uk-form-stacked" method="post" action="addOrUpdateType" >
                         <div class="uk-grid data-uk-grid-margin">
                             <div class="uk-width-large-1-1">
                                 <div class="parsley-row">

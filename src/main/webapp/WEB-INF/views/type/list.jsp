@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %> 
-<%@  taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
+<%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
  String menuval=request.getContextPath().toString();
 %>
@@ -39,10 +39,10 @@
 					
 							<c:forEach var="u" items="${allType}">
 								<tr>
-									<td class="uk-text-center"><span class="uk-text-small uk-text-muted uk-text-nowrap"><c:out value="${u.id}" /></span></td>
-									<td class="uk-text-small"><c:out value="${u.description}" /></td> 
-									<td style="width: 50px;"><a  href="update/<c:out value="${u.id}" />" class="ts_remove_row"><i class="md-icon material-icons">&#xE22B;</i></a></td>
-									<td style="width: 50px;"><a onclick="UIkit.modal.confirm('Are you sure ?',  function(){   window.location.assign('delete/<c:out value="${u.id}"/>') });" class="ts_remove_row"><i class="md-icon material-icons"></i></a>
+									<td class="uk-text-center"><span class="uk-text-small uk-text-muted uk-text-nowrap">${u.id}</span></td>
+									<td class="uk-text-small">${u.description}</td> 
+									<td style="width: 50px;"><a  href="update/${u.id}" class="ts_remove_row"><i class="md-icon material-icons">&#xE22B;</i></a></td>
+									<td style="width: 50px;"><a onclick="UIkit.modal.confirm('Are you sure ?',  function(){   window.location.assign('delete/${u.id}') });" class="ts_remove_row"><i class="md-icon material-icons"></i></a>
 									</td>
 								</tr>
 							</c:forEach>

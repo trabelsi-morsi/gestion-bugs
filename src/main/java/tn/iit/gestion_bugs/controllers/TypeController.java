@@ -40,23 +40,16 @@ public class TypeController {
 	}
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
-    public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
+	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
 		Optional<Type> type = typeRepository.findById(id);
 		model.addAttribute("type", type.get());
-		model.addAttribute("action", "updateType");
 		return "/type/update";
 
-    }
-
-	@RequestMapping(value = "/addType", method = RequestMethod.POST)
-	public String add(@ModelAttribute Type type) {
-		typeRepository.saveAndFlush(type);
-		return "redirect:/type/list";
 	}
 
-	@RequestMapping(value = "/update/updateType", method = RequestMethod.POST)
-	public String update(@ModelAttribute Type type) {
-		typeRepository.save(type);
+	@RequestMapping(value = "/addOrUpdateType", method = RequestMethod.POST)
+	public String addOrUpdate(@ModelAttribute Type type) {
+		typeRepository.saveAndFlush(type);
 		return "redirect:/type/list";
 	}
 
