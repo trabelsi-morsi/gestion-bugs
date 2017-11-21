@@ -1,14 +1,12 @@
 package tn.iit.gestion_bugs.entities;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Type implements Serializable {
@@ -22,9 +20,6 @@ public class Type implements Serializable {
 	private Long id;
 	@Column
 	private String description;
-
-	@OneToMany(mappedBy = "type")
-	private List<User> users;
 
 	public Long getId() {
 		return id;
@@ -40,14 +35,6 @@ public class Type implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
 	}
 
 	@Override
