@@ -19,7 +19,7 @@ public class Type implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column
-	private String discription;
+	private String description;
 
 	public Long getId() {
 		return id;
@@ -29,14 +29,14 @@ public class Type implements Serializable {
 		this.id = id;
 	}
 
-	public String getDiscription() {
-		return discription;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDiscription(String discription) {
-		this.discription = discription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

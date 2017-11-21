@@ -1,30 +1,43 @@
 package tn.iit.gestion_bugs.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Severity implements Serializable{
-	
+public class Severity implements Serializable {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id; 
+	private Long id;
 	@Column
 	private String title;
 	@Column
 	private String description;
 	@Column
 	private String color;
+
+	@OneToMany(mappedBy = "severity")
+	private List<Bug> bugs;
+
+	public List<Bug> getBugs() {
+		return bugs;
+	}
+
+	public void setBugs(List<Bug> bugs) {
+		this.bugs = bugs;
+	}
 
 	public Long getId() {
 		return id;
@@ -82,6 +95,5 @@ public class Severity implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
+
 }
