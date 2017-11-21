@@ -25,7 +25,7 @@ public class Category implements Serializable {
 	private String description;
 
 	@OneToMany(mappedBy = "category")
-	private List<Category> categories;
+	private List<Bug> bugs;
 
 	public Long getId() {
 		return id;
@@ -51,12 +51,14 @@ public class Category implements Serializable {
 		this.description = description;
 	}
 
-	public List<Category> getCategories() {
-		return categories;
+	
+
+	public List<Bug> getBugs() {
+		return bugs;
 	}
 
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
+	public void setBugs(List<Bug> bugs) {
+		this.bugs = bugs;
 	}
 
 	@Override
