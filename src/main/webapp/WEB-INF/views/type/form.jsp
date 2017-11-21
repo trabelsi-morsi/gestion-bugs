@@ -9,18 +9,12 @@
 			<jsp:include page="../../basefragments/header_main.jsp" flush="true"/>
     </jsp:attribute>
     
-    
-    
     <jsp:attribute name="menu">
 			<jsp:include page="../../basefragments/menu.jsp" flush="true"/>
      </jsp:attribute>
     
-        
-  
-     
     <jsp:body>
-        
-<%--             <jsp:include page="views/type/form" /> --%>
+
               <h3 class="heading_b uk-margin-bottom">Add Type</h3>
 
             <div class="md-card">
