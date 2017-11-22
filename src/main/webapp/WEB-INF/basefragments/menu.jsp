@@ -50,49 +50,19 @@
                         <li><a  href="${contextPath}/category/list">List Category</a></li> 
                     </ul>
                 </li>
-		 <!--  
-                 <li title="Dashboard">
-                    <a href="">
-                        <span class="menu_icon"><i class="material-icons" style=" margin-top: -16px; ">&#xE871;</i></span>
-                        <span class="menu_title">Home</span>
-                    </a>
-                </li>
-				<li title="Dashboard" class="current_section" >
-                    <a href="plugins_crud_table.html">
-                        <span class="menu_icon"><i class="material-icons" style=" margin-top: -16px; ">&#xE8EF;</i></span>
-                        <span class="menu_title">Show bugs</span>
-                    </a>
-                </li>
-				
-				<li title="Dashboard"   >
-                    <a href="plugins_tablesorter.html">
-                        <span class="menu_icon"><i class="material-icons" style=" margin-top: -16px; ">&#xE8EF;</i></span>
-                        <span class="menu_title">All Project</span>
-                    </a>
-                </li>
-				
-			 
-				 <li>
+                
+                <li>
                     <a href="#">
-                        <span class="menu_icon">
-                        <i class="material-icons" style=" margin-top: -16px; ">&#xE8EF;</i></span>
-                        <span class="menu_title">Rapporter un bogue</span>
+                        <span class="menu_icon">  
+                        <i class="material-icons" style=" margin-top: -16px; ">&#xE866;</i></span>
+                        <span class="menu_title">Status</span>
                     </a>
                     <ul>
-                        <li><a href="components_tables_examples.html">View all bugs</a></li>
-                        <li><a href="forms_regular.html">Add bug</a></li> 
+                        <li><a  href="${contextPath}/status/add">Add Status</a></li>
+                        <li><a  href="${contextPath}/status/list">List Status</a></li> 
                     </ul>
                 </li>
-				
-				
-				<li title="Dashboard"   >
-                    <a href="plugins_crud_table.html">
-                        <span class="menu_icon"><i class="material-icons" style=" margin-top: -16px; ">&#xE8EF;</i></span>
-                        <span class="menu_title">crud table</span>
-                    </a>
-                </li>
-        	 -->
-        
+		
 		  </ul>
         </div>
         
