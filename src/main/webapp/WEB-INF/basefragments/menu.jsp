@@ -62,6 +62,17 @@
                         <li><a  href="${contextPath}/status/list">List Status</a></li> 
                     </ul>
                 </li>
+                <li>
+                    <a href="#">
+                        <span class="menu_icon">  
+                        <i class="material-icons" style=" margin-top: -16px; ">&#xE0B8;</i></span>
+                        <span class="menu_title">Project</span>
+                    </a>
+                    <ul>
+                        <li><a  href="${contextPath}/project/add">Add Project</a></li>
+                        <li><a  href="${contextPath}/project/list">List Project</a></li> 
+                    </ul>
+                </li>
 		
 		  </ul>
         </div>

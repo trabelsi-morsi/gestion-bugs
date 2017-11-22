@@ -34,12 +34,12 @@ public class UserController {
 		model.addAttribute("allUser", userRepository.findAll());
 		return "/user/list";
 	}
-	
+
 	@GetMapping("/dashboard")
 	public String dashboard() {
 		return "dashboard";
 	}
-	
+
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable(name = "id") Long id) {
 		userRepository.delete(userRepository.getOne(id));
