@@ -40,6 +40,18 @@
                         <li><a  href="<%=menuval%>/user/list">List User</a></li> 
                     </ul>
                 </li>
+                
+                 <li>
+                    <a href="#">
+                        <span class="menu_icon">  
+                        <i class="material-icons" style=" margin-top: -16px; ">&#xE8D3;</i></span>
+                        <span class="menu_title">Category</span>
+                    </a>
+                    <ul>
+                        <li><a  href="<%=menuval%>/category/add">Add Category</a></li>
+                        <li><a  href="<%=menuval%>/category/list">List Category</a></li> 
+                    </ul>
+                </li>
 		 <!--  
                  <li title="Dashboard">
                     <a href="">
