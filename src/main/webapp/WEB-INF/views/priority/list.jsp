@@ -15,7 +15,7 @@
      
     <jsp:body>
         
-     <h3 class="heading_b uk-margin-bottom">List Category</h3>
+     <h3 class="heading_b uk-margin-bottom">List Priority</h3>
      <div class="md-card">
          <div class="md-card-content">
          
@@ -26,19 +26,17 @@
 					      <thead>
 					          <tr>
 					              <th class="uk-text-center">ID</th>
-					              <th>Title</th>
-					              <th>Description</th>
+					              <th>Tiltle</th>
 					             
 					              <th class="filter-false remove sorter-false uk-text-center" colspan="2" style="width: 50px;">Actions</th>
 					          </tr>
 					      </thead>
 					    <tbody>
 					
-							<c:forEach var="c" items="${allCategories}">
+							<c:forEach var="c" items="${allPriorities}">
 								<tr>
 									<td class="uk-text-center"><span class="uk-text-small uk-text-muted uk-text-nowrap">${c.id}</span></td>
-									<td class="uk-text-small">${c.title}</td>
-									<td class="uk-text-small">${c.description}</td> 
+									<td class="uk-text-small"><span class="uk-badge uk-badge-danger" style="background-color:${c.color};">${c.title}</span></td> 
 									<td style="width: 50px;"><a  href="update/${c.id}" class="ts_remove_row"><i class="md-icon material-icons">&#xE22B;</i></a></td>
 									<td style="width: 50px;"><a onclick="UIkit.modal.confirm('Are you sure ?',  function(){   window.location.assign('delete/${c.id}') });" class="ts_remove_row"><i class="md-icon material-icons"></i></a>
 									</td>
