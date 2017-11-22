@@ -1,5 +1,7 @@
 package tn.iit.gestion_bugs.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import tn.iit.gestion_bugs.entities.Severity;
+import tn.iit.gestion_bugs.entities.Type;
 import tn.iit.gestion_bugs.repository.SeverityRepository;
 
 @Controller
-@RequestMapping("/serevity")
+@RequestMapping("/severity")
 public class SeverityController {
 
 	@Autowired
@@ -20,8 +23,8 @@ public class SeverityController {
 
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
-		model.addAttribute("allPriorities", severityRepository.findAll());
-		return "list";
+		model.addAttribute("allSeverities", severityRepository.findAll());
+		return "/severity/list";
 	}
 
 	@RequestMapping(value = "delete/{id}")
@@ -34,26 +37,21 @@ public class SeverityController {
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
 		model.addAttribute("action", "addSeverity");
-		return "form";
+		return "/severity/form";
 	}
-
+	
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
-		model.addAttribute("severity", severityRepository.getOne(id));
-		model.addAttribute("action", "updateSeverity");
-		return "form";
+		Optional<Severity> severity = severityRepository.findById(id);
+		model.addAttribute("severity", severity.get());
+		return "/severity/update";
 
 	}
 
-	@RequestMapping(value = "/addSeverity", method = RequestMethod.POST)
-	public String add(@ModelAttribute Severity severity) {
-		severityRepository.save(severity);
-		return "redirect:/severity/list";
-	}
 
-	@RequestMapping(value = "/update/updateSeverity", method = RequestMethod.POST)
-	public String update(@ModelAttribute Severity severity) {
-		severityRepository.save(severity);
+	@RequestMapping(value = "/addOrUpdateSeverity", method = RequestMethod.POST)
+	public String addOrUpdate(@ModelAttribute Severity severity) {
+		severityRepository.saveAndFlush(severity);
 		return "redirect:/severity/list";
 	}
 

@@ -18,10 +18,10 @@
 
     <title>Gestion Bugs</title>
 
-  <link rel="stylesheet" href="${contextPath}/resources/bower_components/uikit/css/uikit.almost-flat.min.css" media="all">
+				  <link rel="stylesheet" href="${contextPath}/resources/bower_components/uikit/css/uikit.almost-flat.min.css" media="all">
 			    <link rel="stylesheet" href="${contextPath}/resources/assets/icons/flags/flags.min.css" media="all">
 			    <link rel="stylesheet" href="${contextPath}/resources/assets/css/main.min.css" media="all">
-<jsp:invoke fragment="css"/>
+				<jsp:invoke fragment="css"/>
 </head>
   <body class=" sidebar_main_open sidebar_main_swipe">
     
@@ -55,6 +55,7 @@
 		    <script src="${contextPath}/resources/assets/js/pages/plugins_tablesorter.min.js"></script>
 		    <script src="${contextPath}/resources/assets/js/pages/components_notifications.min.js"></script>
 		    <script src="${contextPath}/resources/assets/js/pages/forms_file_upload.min.js"></script>
+		     
      	<jsp:invoke fragment="footer"/>
     </div>
     
