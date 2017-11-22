@@ -2,15 +2,13 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %> 
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
-<%
- String menuval=request.getContextPath().toString();
-%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
      <div class="sidebar_main_header" style=" height: 114px;">
             <div class="sidebar_logo" style="height: 164px;/* line-height: 66px; */">
-                <a href="index.html" class="sSidebar_hide" style="margin: 0 auto;display: block;">
-                <img src="<%=menuval%>/resources/assets/img/logo.png" alt="" height="15" width="71" class="" style="margin: 0 auto;display: block;margin-top: 12px;width: 100px;"></a>
-                <a href="index.html" class="sSidebar_show"><img src="<%=menuval%>/resources/assets/img/logo.png" alt="" height="32" width="32" class=""></a>
+                <a href="/gestion-bugs/" class="sSidebar_hide" style="margin: 0 auto;display: block;">
+                <img src="${contextPath}/resources/assets/img/logo.png" alt="" height="15" width="71" class="" style="margin: 0 auto;display: block;margin-top: 12px;width: 100px;"></a>
+                <a href="index.html" class="sSidebar_show"><img src="${contextPath}/resources/assets/img/logo.png" alt="" height="32" width="32" class=""></a>
             </div>
          
         </div>
@@ -24,8 +22,8 @@
                        <span class="menu_title">Type</span>
                     </a>
                     <ul>
- 						<li><a   href="<%=menuval%>/type/add" >Add Type</a></li>
-                     	<li><a  href="<%=menuval%>/type/list">List Type</a></li> 
+ 						<li><a   href="${contextPath}/type/add" >Add Type</a></li>
+                     	<li><a  href="${contextPath}/type/list">List Type</a></li> 
                     </ul>
                 </li>
                 
@@ -36,8 +34,20 @@
                         <span class="menu_title">User</span>
                     </a>
                     <ul>
-                        <li><a  href="<%=menuval%>/user/add">Add User</a></li>
-                        <li><a  href="<%=menuval%>/user/list">List User</a></li> 
+                        <li><a  href="${contextPath}/user/add">Add User</a></li>
+                        <li><a  href="${contextPath}/user/list">List User</a></li> 
+                    </ul>
+                </li>
+                
+                 <li>
+                    <a href="#">
+                        <span class="menu_icon">  
+                        <i class="material-icons" style=" margin-top: -16px; ">&#xE8D3;</i></span>
+                        <span class="menu_title">Category</span>
+                    </a>
+                    <ul>
+                        <li><a  href="${contextPath}/category/add">Add Category</a></li>
+                        <li><a  href="${contextPath}/category/list">List Category</a></li> 
                     </ul>
                 </li>
 		 <!--  

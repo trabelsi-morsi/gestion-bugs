@@ -1,5 +1,7 @@
 package tn.iit.gestion_bugs.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +23,7 @@ public class CategoryController {
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
 		model.addAttribute("allCategories", categoryRepository.findAll());
-		return "list";
+		return "/category/list";
 	}
 
 	@RequestMapping(value = "delete/{id}")
@@ -34,26 +36,20 @@ public class CategoryController {
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
 		model.addAttribute("action", "addCategory");
-		return "form";
+		return "/category/form";
 	}
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
-		model.addAttribute("category", categoryRepository.getOne(id));
-		model.addAttribute("action", "updateCategory");
-		return "form";
+		Optional<Category> category = categoryRepository.findById(id);
+		model.addAttribute("category", category.get());
+		return "/category/update";
 
 	}
 
-	@RequestMapping(value = "/addCategory", method = RequestMethod.POST)
-	public String add(@ModelAttribute Category category) {
+	@RequestMapping(value = "/addOrUpdateCategory", method = RequestMethod.POST)
+	public String addOrUpdate(@ModelAttribute Category category) {
 		categoryRepository.saveAndFlush(category);
-		return "redirect:/category/list";
-	}
-
-	@RequestMapping(value = "/update/updateCategory", method = RequestMethod.POST)
-	public String update(@ModelAttribute Category category) {
-		categoryRepository.save(category);
 		return "redirect:/category/list";
 	}
 

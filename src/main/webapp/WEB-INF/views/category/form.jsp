@@ -15,19 +15,27 @@
     
     <jsp:body>
 
-              <h3 class="heading_b uk-margin-bottom">Add Type</h3>
+              <h3 class="heading_b uk-margin-bottom">Add Category</h3>
 
             <div class="md-card">
                 <div class="md-card-content large-padding">
-                    <form id="form_validation" class="uk-form-stacked" method="post" action="addOrUpdateType" >
-                        <div class="uk-grid data-uk-grid-margin">
-                            <div class="uk-width-large-1-1">
+                    <form id="form_validation" class="uk-form-stacked" method="post" action="addOrUpdateCategory" >
+                       <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
                                 <div class="parsley-row">
                                     <label for="fullname">Description<span class="req">*</span></label>
-                                	<textarea cols="30" rows="4" class="md-input"  name="description"  > </textarea> 
+                                    <input type="text" name="description" required class="md-input" />
                                 </div>
-                            </div> 
-                        </div> 
+                            </div>
+                           </div>
+                        <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
+                                <div class="parsley-row">
+                                    <label for="fullname">Title<span class="req">*</span></label>
+                                    <input type="text" name="title" required class="md-input" />
+                                </div>
+                            </div>
+                            </div>
                         <div class="uk-grid">
                             <div class="uk-width-1-1">
                                 <button type="submit" class="md-btn md-btn-primary">Add</button>

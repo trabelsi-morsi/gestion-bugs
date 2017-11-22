@@ -78,7 +78,7 @@
                         </div>
                         <div class="uk-grid">
                             <div class="uk-width-1-1">
-                                <button type="submit" class="md-btn md-btn-primary">Submit</button>
+                                <button type="submit" class="md-btn md-btn-primary">Add</button>
                             </div>
                         </div>
                     </form>
