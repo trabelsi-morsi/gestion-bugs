@@ -3,9 +3,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %> 
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
-<%
- String menuval=request.getContextPath().toString();
-%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
  <div class="header_main_content">
             <nav class="uk-navbar">
@@ -131,7 +129,7 @@
                             </div>
                         </li>
                         <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
-                            <a href="#" class="user_action_image"><img class="md-user-image" style=" background: #ececec; " src="<%=menuval%>/resources/assets/img/avatars/user.png" alt=""/></a>
+                            <a href="#" class="user_action_image"><img class="md-user-image" style=" background: #ececec; " src="${contextPath}/resources/assets/img/avatars/user.png" alt=""/></a>
                             <div class="uk-dropdown uk-dropdown-small">
                                 <ul class="uk-nav js-uk-prevent">
                                     <li><a href="page_user_profile.html">My profile</a></li>
