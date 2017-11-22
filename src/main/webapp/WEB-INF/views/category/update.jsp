@@ -24,20 +24,20 @@
 					     <div class="uk-grid data-uk-grid-margin">
 					         <div class="uk-width-large-1-1">
 					            <div class="parsley-row">
+					                <label for="fullname">Title<span class="req">*</span></label>
+					   				<input type="text" name="title" required class="md-input" value="${category.title}" /> 
+					            </div>
+					        </div> 
+					    </div>
+					     <div class="uk-grid data-uk-grid-margin">
+					         <div class="uk-width-large-1-1">
+					            <div class="parsley-row">
 					                <label for="fullname">Description<span class="req">*</span></label>
 					   				<input type="text" name="description" required class="md-input" value="${category.description}" /> 
 					            </div>
 					        </div> 
 					    </div> 
 					    
-					      <div class="uk-grid data-uk-grid-margin">
-					         <div class="uk-width-large-1-1">
-					            <div class="parsley-row">
-					                <label for="fullname">Title<span class="req">*</span></label>
-					   				<input type="text" name="title" required class="md-input" value="${category.title}" /> 
-					            </div>
-					        </div> 
-					    </div>
 					    <div class="uk-grid">
 					        <div class="uk-width-1-1">
 					            <button type="submit" class="md-btn md-btn-primary">Update</button>

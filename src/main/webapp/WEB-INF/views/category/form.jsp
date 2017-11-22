@@ -20,14 +20,6 @@
             <div class="md-card">
                 <div class="md-card-content large-padding">
                     <form id="form_validation" class="uk-form-stacked" method="post" action="addOrUpdateCategory" >
-                       <div class="uk-grid" data-uk-grid-margin>
-                            <div class="uk-width-medium-1-2">
-                                <div class="parsley-row">
-                                    <label for="fullname">Description<span class="req">*</span></label>
-                                    <input type="text" name="description" required class="md-input" />
-                                </div>
-                            </div>
-                           </div>
                         <div class="uk-grid" data-uk-grid-margin>
                             <div class="uk-width-medium-1-2">
                                 <div class="parsley-row">
@@ -36,6 +28,14 @@
                                 </div>
                             </div>
                             </div>
+                       <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-2">
+                                <div class="parsley-row">
+                                    <label for="fullname">Description<span class="req">*</span></label>
+                                    <input type="text" name="description" required class="md-input" />
+                                </div>
+                            </div>
+                           </div>
                         <div class="uk-grid">
                             <div class="uk-width-1-1">
                                 <button type="submit" class="md-btn md-btn-primary">Add</button>

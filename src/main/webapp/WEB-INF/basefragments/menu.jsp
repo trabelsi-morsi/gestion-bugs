@@ -60,6 +60,18 @@
                         <li><a  href="${contextPath}/category/list">List Category</a></li> 
                     </ul>
                 </li>
+                
+                  <li>
+                    <a href="#">
+                        <span class="menu_icon">  
+                        <i class="material-icons" style=" margin-top: -16px; ">&#xE8D3;</i></span>
+                        <span class="menu_title">Priority</span>
+                    </a>
+                    <ul>
+                        <li><a  href="${contextPath}/priority/add">Add Priority</a></li>
+                        <li><a  href="${contextPath}/priority/list">List Priority</a></li> 
+                    </ul>
+                </li>
 		 <!--  
                  <li title="Dashboard">
                     <a href="">
