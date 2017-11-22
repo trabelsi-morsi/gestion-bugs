@@ -14,7 +14,7 @@
 		<intercept-url pattern="/project/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/screenShot/**"
 			access="hasAnyRole('ROLE_ADMIN','ROLE_DEVELOPER','ROLE_TESTER')" />
-		<intercept-url pattern="/serevity/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/severity/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/status/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/type/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/user/**" access="hasRole('ROLE_ADMIN')" />

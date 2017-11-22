@@ -28,7 +28,17 @@
                      	<li><a  href="<%=menuval%>/type/list">List Type</a></li> 
                     </ul>
                 </li>
-                
+                <li>
+                    <a href="#">
+                        <span class="menu_icon">   
+                        <i class="material-icons" style=" margin-top: -16px; ">&#xE84E;</i></span>
+                       <span class="menu_title">Severity</span>
+                    </a>
+                    <ul>
+ 						<li><a   href="<%=menuval%>/severity/add" >Add Severity</a></li>
+                     	<li><a  href="<%=menuval%>/severity/list">List Severity</a></li> 
+                    </ul>
+                </li>
 			   <li>
                     <a href="#">
                         <span class="menu_icon">  
