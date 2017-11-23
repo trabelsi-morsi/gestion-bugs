@@ -24,7 +24,7 @@ import tn.iit.gestion_bugs.repository.UserRepository;
 @RequestMapping("/user")
 public class UserController {
 
-	private static String FOLDER = "C://gestion-bugs//User//";
+	private static String FOLDER = "E://gestion-bugs//User//";
 
 	@Autowired
 	private UserRepository userRepository;
