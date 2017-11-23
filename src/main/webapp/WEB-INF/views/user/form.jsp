@@ -20,7 +20,6 @@
      
     <jsp:body>
         
-<%--             <jsp:include page="views/type/form" /> --%>
               <h3 class="heading_b uk-margin-bottom">Add User</h3>
 
             <div class="md-card">
