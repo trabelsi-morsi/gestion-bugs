@@ -151,6 +151,7 @@
         </div>
         
     </div>
+    
 
 		<% if("erreur".equals(request.getAttribute("msg"))){ %>
 		<div class="uk-notify uk-notify-bottom-center" >
