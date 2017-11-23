@@ -33,8 +33,8 @@
                        <span class="menu_title">Severity</span>
                     </a>
                     <ul>
- 						<li><a   href="<%=menuval%>/severity/add" >Add Severity</a></li>
-                     	<li><a  href="<%=menuval%>/severity/list">List Severity</a></li> 
+ 						<li><a   href="${contextPath}/severity/add" >Add Severity</a></li>
+                     	<li><a  href="${contextPath}/severity/list">List Severity</a></li> 
                     </ul>
                 </li>
 			   <li>
