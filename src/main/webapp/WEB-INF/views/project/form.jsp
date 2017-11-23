@@ -43,7 +43,7 @@
                                         <span class="uk-input-group-addon"><i class="uk-input-group-icon uk-icon-calendar"></i></span>
 	                                        <div class="md-input-wrapper">
 	                                        <label for="uk_dp_1">Date*</label>
-	                                        <input class="md-input" type="text" id="uk_dp_1" name="date" data-uk-datepicker="{format:'YYYY-MM-DD'}">
+	                                        <input class="md-input" type="text" id="uk_dp_1" name="datee" data-uk-datepicker="{format:'YYYY-MM-DD'}">
 	                                        <span class="md-input-bar"></span>
                                         </div>
                                         

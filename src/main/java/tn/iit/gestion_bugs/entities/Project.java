@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Project implements Serializable {
@@ -26,6 +28,7 @@ public class Project implements Serializable {
 	@Column
 	private String description;
 	@Column
+	@Temporal(TemporalType.DATE)
 	private Date date;
 
 	@OneToMany(mappedBy = "project")

@@ -48,7 +48,7 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value = "/addOrUpdateProject", method = RequestMethod.POST)
-	public String addOrUpdate(@ModelAttribute Project project, @RequestParam(name = "date") String date) {
+	public String addOrUpdate(@ModelAttribute Project project, @RequestParam(name = "datee") String date) {
 		SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			project.setDate(formater.parse(date));
