@@ -26,17 +26,7 @@
                      	<li><a  href="${contextPath}/type/list">List Type</a></li> 
                     </ul>
                 </li>
-                <li>
-                    <a href="#">
-                        <span class="menu_icon">   
-                        <i class="material-icons" style=" margin-top: -16px; ">&#xE84E;</i></span>
-                       <span class="menu_title">Severity</span>
-                    </a>
-                    <ul>
- 						<li><a   href="${contextPath}/severity/add" >Add Severity</a></li>
-                     	<li><a  href="${contextPath}/severity/list">List Severity</a></li> 
-                    </ul>
-                </li>
+                
 			   <li>
                     <a href="#">
                         <span class="menu_icon">  
@@ -61,7 +51,30 @@
                     </ul>
                 </li>
                 
-                  <li>
+                <li>
+                    <a href="#">
+                        <span class="menu_icon">  
+                        <i class="material-icons" style=" margin-top: -16px; ">&#xE866;</i></span>
+                        <span class="menu_title">Status</span>
+                    </a>
+                    <ul>
+                        <li><a  href="${contextPath}/status/add">Add Status</a></li>
+                        <li><a  href="${contextPath}/status/list">List Status</a></li> 
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="menu_icon">  
+                        <i class="material-icons" style=" margin-top: -16px; ">&#xE0B8;</i></span>
+                        <span class="menu_title">Project</span>
+                    </a>
+                    <ul>
+                        <li><a  href="${contextPath}/project/add">Add Project</a></li>
+                        <li><a  href="${contextPath}/project/list">List Project</a></li> 
+                    </ul>
+                </li>
+                
+                <li>
                     <a href="#">
                         <span class="menu_icon">  
                         <i class="material-icons" style=" margin-top: -16px; ">&#xE8D3;</i></span>
@@ -72,49 +85,8 @@
                         <li><a  href="${contextPath}/priority/list">List Priority</a></li> 
                     </ul>
                 </li>
-		 <!--  
-                 <li title="Dashboard">
-                    <a href="">
-                        <span class="menu_icon"><i class="material-icons" style=" margin-top: -16px; ">&#xE871;</i></span>
-                        <span class="menu_title">Home</span>
-                    </a>
-                </li>
-				<li title="Dashboard" class="current_section" >
-                    <a href="plugins_crud_table.html">
-                        <span class="menu_icon"><i class="material-icons" style=" margin-top: -16px; ">&#xE8EF;</i></span>
-                        <span class="menu_title">Show bugs</span>
-                    </a>
-                </li>
-				
-				<li title="Dashboard"   >
-                    <a href="plugins_tablesorter.html">
-                        <span class="menu_icon"><i class="material-icons" style=" margin-top: -16px; ">&#xE8EF;</i></span>
-                        <span class="menu_title">All Project</span>
-                    </a>
-                </li>
-				
-			 
-				 <li>
-                    <a href="#">
-                        <span class="menu_icon">
-                        <i class="material-icons" style=" margin-top: -16px; ">&#xE8EF;</i></span>
-                        <span class="menu_title">Rapporter un bogue</span>
-                    </a>
-                    <ul>
-                        <li><a href="components_tables_examples.html">View all bugs</a></li>
-                        <li><a href="forms_regular.html">Add bug</a></li> 
-                    </ul>
-                </li>
-				
-				
-				<li title="Dashboard"   >
-                    <a href="plugins_crud_table.html">
-                        <span class="menu_icon"><i class="material-icons" style=" margin-top: -16px; ">&#xE8EF;</i></span>
-                        <span class="menu_title">crud table</span>
-                    </a>
-                </li>
-        	 -->
-        
+                
+		
 		  </ul>
         </div>
         

@@ -21,7 +21,7 @@ public class StatusController {
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
 		model.addAttribute("allStatus", statusRepository.findAll());
-		return "list";
+		return "/status/list";
 	}
 
 	@RequestMapping(value = "delete/{id}")
@@ -34,26 +34,19 @@ public class StatusController {
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
 		model.addAttribute("action", "addStatus");
-		return "form";
+		return "/status/form";
 	}
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
-		model.addAttribute("status", statusRepository.getOne(id));
-		model.addAttribute("action", "updateStatus");
-		return "form";
+		model.addAttribute("status", statusRepository.findById(id).get());
+		return "/status/update";
 
 	}
 
-	@RequestMapping(value = "/addStatus", method = RequestMethod.POST)
-	public String add(@ModelAttribute Status status) {
+	@RequestMapping(value = "/addOrUpdateStatus", method = RequestMethod.POST)
+	public String addOrUpdate(@ModelAttribute Status status) {
 		statusRepository.saveAndFlush(status);
-		return "redirect:/status/list";
-	}
-
-	@RequestMapping(value = "/update/updateStatus", method = RequestMethod.POST)
-	public String update(@ModelAttribute Status status) {
-		statusRepository.save(status);
 		return "redirect:/status/list";
 	}
 
