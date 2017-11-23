@@ -32,14 +32,14 @@ public class User implements Serializable {
 	private String email;
 	@Column(nullable = true)
 	private String phone;
-	@Column
+	@Column(nullable = true)
 	private String photo;
 
 	@OneToMany(mappedBy = "user")
 	private List<Bug> bugs;
 
 	@ManyToOne
-	@JoinColumn(name = "type_id")
+	@JoinColumn(name = "type_id", nullable = true)
 	private Type type;
 
 	public Long getId() {
@@ -97,7 +97,6 @@ public class User implements Serializable {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	
 
 	public List<Bug> getBugs() {
 		return bugs;
