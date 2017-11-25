@@ -79,7 +79,24 @@
                                     <input type="email" name="email" data-parsley-trigger="change" required  class="md-input" value="${user.email}" />
                                 </div>
                             </div>
-                              
+                            <div class="uk-width-medium-1-2">
+	                            <select id="select_demo_1" data-md-selectize >
+	                                <option value="">Select Type...</option>
+									<c:forEach var="u" items="${allType}">
+		                                <c:choose>
+										    <c:when test="${u.id == user.type.id}">
+				                                <option value="${u.id}" selected>${u.description}</option> 
+										    </c:when>    
+										    <c:otherwise>
+				                                <option value="${u.id}">${u.description}</option> 
+										    </c:otherwise>
+										</c:choose>
+									</c:forEach>
+	                            </select>
+	                        </div>
+                         </div>
+                                 
+                        <div class="uk-grid" data-uk-grid-margin>
                              <div class="uk-width-medium-1-2">
 	                              <div class="md-card-head-avatar"   onclick="viewphotomodel('${user.photo}')"  data-uk-modal="{target:'#modal_lightbox'}">
 	                                   <img class="md-user-image" src="${user.photo}"  alt="${user.name}"  id="styleimage">
@@ -91,12 +108,11 @@
 		                                <input type="hidden" name="photo" value="${user.photo}"   />
 		                            </div> 
 	                        </div>
-                        
                         </div>
                          
 					    <div class="uk-grid">
 					        <div class="uk-width-1-1">
-					            <button type="submit" class="md-btn md-btn-primary">Update</button>
+					            <button type="submit" class="md-btn md-btn-primary  uk-align-medium-right">Update</button>
 					        </div>
 					    </div>
 					</form>

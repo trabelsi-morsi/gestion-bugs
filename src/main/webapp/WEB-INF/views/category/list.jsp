@@ -10,7 +10,7 @@
     <jsp:attribute name="menu">
 			<jsp:include page="../../basefragments/menu.jsp" flush="true"/>
      </jsp:attribute>
-  
+    
 	<jsp:attribute name="footer">
 	  		<!-- tablesorter -->
 		    <script src="${pageContext.request.contextPath}/resources/bower_components/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
@@ -22,7 +22,9 @@
 		    <script src="${pageContext.request.contextPath}/resources/assets/js/pages/plugins_tablesorter.min.js"></script>
 		    <script src="${pageContext.request.contextPath}/resources/assets/js/pages/components_notifications.min.js"></script>
 		    <script src="${pageContext.request.contextPath}/resources/assets/js/pages/forms_file_upload.min.js"></script>
- 	</jsp:attribute>      
+ 	</jsp:attribute>  
+     
+     
      
     <jsp:body>
         
@@ -75,7 +77,7 @@
 							   </select>
 						   </li>
 					   </ul>
-			</div>
+				</div>
 			</div>
 
             <div class="md-fab-wrapper">

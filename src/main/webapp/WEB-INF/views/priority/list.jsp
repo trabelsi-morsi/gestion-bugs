@@ -11,6 +11,18 @@
 			<jsp:include page="../../basefragments/menu.jsp" flush="true"/>
      </jsp:attribute>
     
+	<jsp:attribute name="footer">
+	  		<!-- tablesorter -->
+		    <script src="${pageContext.request.contextPath}/resources/bower_components/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
+		    <script src="${pageContext.request.contextPath}/resources/bower_components/tablesorter/dist/js/jquery.tablesorter.widgets.min.js"></script>
+		    <script src="${pageContext.request.contextPath}/resources/bower_components/tablesorter/dist/js/widgets/widget-alignChar.min.js"></script>
+		    <script src="${pageContext.request.contextPath}/resources/bower_components/tablesorter/dist/js/extras/jquery.tablesorter.pager.min.js"></script>
+		    <script src="${pageContext.request.contextPath}/resources/assets/js/pages/pages_issues.min.js"></script>
+		    <!--  tablesorter functions -->
+		    <script src="${pageContext.request.contextPath}/resources/assets/js/pages/plugins_tablesorter.min.js"></script>
+		    <script src="${pageContext.request.contextPath}/resources/assets/js/pages/components_notifications.min.js"></script>
+		    <script src="${pageContext.request.contextPath}/resources/assets/js/pages/forms_file_upload.min.js"></script>
+ 	</jsp:attribute>  
      
      
     <jsp:body>
