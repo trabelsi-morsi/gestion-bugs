@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,7 +88,27 @@ public class BugController {
 	}
 
 	@RequestMapping(value = "/addOrUpdateBug", method = RequestMethod.POST)
-	public String addOrUpdate(@ModelAttribute Bug bug, @RequestParam("files") MultipartFile[] screenshots) {
+	public String addOrUpdate(@ModelAttribute Bug bug, @RequestParam("idCategory") Long idCategory,
+			@RequestParam("idSeverity") Long idSeverity, @RequestParam("idPriority") Long idPriority,
+			@RequestParam("idStatus") Long idStatus, @RequestParam("idProject") Long idProject,
+			@RequestParam("dateR") String dateRaised, @RequestParam("dateC") String dateClosed,
+			@RequestParam("files") MultipartFile[] screenshots) {
+
+		bug.setCategory(categoryRepository.findById(idCategory).get());
+		bug.setSeverity(severityRepository.findById(idSeverity).get());
+		bug.setPriority(priorityRepository.findById(idPriority).get());
+		bug.setStatus(statusRepository.findById(idStatus).get());
+		bug.setProject(projectRepository.findById(idProject).get());
+		bug.setTesterId(1L);
+
+		SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			bug.setDateRaised(formater.parse(dateRaised));
+			bug.setDateClosed(formater.parse(dateClosed));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
 		// save the bug
 		bugRepository.saveAndFlush(bug);
 		// save the screenshots
