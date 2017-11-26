@@ -35,8 +35,10 @@ public class Bug implements Serializable {
 	private Date dateClosed;
 	@Column
 	private String feedback;
-	@Column
+	@Column(nullable = true)
 	private boolean isDeleted;
+	@Column
+	private Long testerId;
 
 	@ManyToOne
 	@JoinColumn(name = "category_id")
@@ -183,6 +185,14 @@ public class Bug implements Serializable {
 
 	public void setScreenShots(List<ScreenShot> screenShots) {
 		this.screenShots = screenShots;
+	}
+
+	public Long getTesterId() {
+		return testerId;
+	}
+
+	public void setTesterId(Long testerId) {
+		this.testerId = testerId;
 	}
 
 	@Override

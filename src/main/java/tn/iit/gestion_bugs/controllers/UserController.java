@@ -31,17 +31,12 @@ public class UserController {
 
 	@Autowired
 	private TypeRepository typeRepository;
-	
-	
-	
-	
+
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
 		model.addAttribute("allUser", userRepository.findAll());
 		return "/user/list";
 	}
-
-
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable(name = "id") Long id) {

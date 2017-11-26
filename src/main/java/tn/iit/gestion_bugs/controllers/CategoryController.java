@@ -35,7 +35,6 @@ public class CategoryController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
-		model.addAttribute("action", "addCategory");
 		return "/category/form";
 	}
 

@@ -35,7 +35,6 @@ public class TypeController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
-		model.addAttribute("action", "addType");
 		return "/type/form";
 	}
 

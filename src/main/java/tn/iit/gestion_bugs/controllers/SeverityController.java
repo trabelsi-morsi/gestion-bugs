@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import tn.iit.gestion_bugs.entities.Severity;
-import tn.iit.gestion_bugs.entities.Type;
 import tn.iit.gestion_bugs.repository.SeverityRepository;
 
 @Controller
@@ -36,10 +35,9 @@ public class SeverityController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
-		model.addAttribute("action", "addSeverity");
 		return "/severity/form";
 	}
-	
+
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
 		Optional<Severity> severity = severityRepository.findById(id);
@@ -47,7 +45,6 @@ public class SeverityController {
 		return "/severity/update";
 
 	}
-
 
 	@RequestMapping(value = "/addOrUpdateSeverity", method = RequestMethod.POST)
 	public String addOrUpdate(@ModelAttribute Severity severity) {
