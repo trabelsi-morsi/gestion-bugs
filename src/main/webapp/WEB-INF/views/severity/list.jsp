@@ -1,10 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %> 
 <%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
- String menuval=request.getContextPath().toString();
-%>
 
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <t:Layout> 
 
 	<jsp:attribute name="header">
@@ -14,6 +12,20 @@
     <jsp:attribute name="menu">
 			<jsp:include page="../../basefragments/menu.jsp" flush="true"/>
      </jsp:attribute>
+    
+	<jsp:attribute name="footer">
+	  		<!-- tablesorter -->
+		    <script src="${contextPath}/resources/bower_components/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
+		    <script src="${contextPath}/resources/bower_components/tablesorter/dist/js/jquery.tablesorter.widgets.min.js"></script>
+		    <script src="${contextPath}/resources/bower_components/tablesorter/dist/js/widgets/widget-alignChar.min.js"></script>
+		    <script src="${contextPath}/resources/bower_components/tablesorter/dist/js/extras/jquery.tablesorter.pager.min.js"></script>
+		    <script src="${contextPath}/resources/assets/js/pages/pages_issues.min.js"></script>
+		    <!--  tablesorter functions -->
+		    <script src="${contextPath}/resources/assets/js/pages/plugins_tablesorter.min.js"></script>
+		    <script src="${contextPath}/resources/assets/js/pages/components_notifications.min.js"></script>
+		    <script src="${contextPath}/resources/assets/js/pages/forms_file_upload.min.js"></script>
+ 	</jsp:attribute>  
+     
     
      
      
@@ -41,7 +53,6 @@
 							<c:forEach var="u" items="${allSeverities}">
 								<tr>
 									<td class="uk-text-center"><span class="uk-text-small uk-text-muted uk-text-nowrap">${u.id}</span></td>
-									
 									<td class="uk-text-small"><span class="uk-badge uk-badge-danger" style="background-color:${u.color};">${u.title}</span></td>
 									<td class="uk-text-small">${u.description}</td>
 									<td style="width: 50px;"><a  href="update/${u.id}" class="ts_remove_row"><i class="md-icon material-icons">&#xE22B;</i></a></td>

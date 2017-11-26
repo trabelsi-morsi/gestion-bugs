@@ -7,7 +7,7 @@ import tn.iit.gestion_bugs.entities.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-	
-	
+
+	User findByLogin(String login);
 
 }

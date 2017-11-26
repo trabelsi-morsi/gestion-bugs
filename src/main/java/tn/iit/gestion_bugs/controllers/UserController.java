@@ -9,7 +9,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import tn.iit.gestion_bugs.entities.User;
+import tn.iit.gestion_bugs.repository.TypeRepository;
 import tn.iit.gestion_bugs.repository.UserRepository;
 
 @Controller
@@ -29,16 +29,19 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 
+	@Autowired
+	private TypeRepository typeRepository;
+	
+	
+	
+	
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
 		model.addAttribute("allUser", userRepository.findAll());
 		return "/user/list";
 	}
 
-	@GetMapping("/dashboard")
-	public String dashboard() {
-		return "dashboard";
-	}
+
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable(name = "id") Long id) {
@@ -49,6 +52,7 @@ public class UserController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
+		model.addAttribute("allType", typeRepository.findAll());
 		return "/user/form";
 	}
 
@@ -56,6 +60,7 @@ public class UserController {
 	public String setupUpdateForm(@PathVariable(name = "id") Long id, Model model) {
 		Optional<User> user = userRepository.findById(id);
 		model.addAttribute("user", user.get());
+		model.addAttribute("allType", typeRepository.findAll());
 		return "/user/update";
 
 	}

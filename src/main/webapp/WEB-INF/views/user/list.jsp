@@ -2,18 +2,17 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-<t:Layout>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<t:Layout> 
 
 	<jsp:attribute name="header">
-        	<jsp:include page="../../basefragments/header_main.jsp"
-			flush="true" />
+        	<jsp:include page="../../basefragments/header_main.jsp" flush="true"/>
     </jsp:attribute>
-
-	<jsp:attribute name="menu">
-			<jsp:include page="../../basefragments/menu.jsp" flush="true" />
+    
+    <jsp:attribute name="menu">
+			<jsp:include page="../../basefragments/menu.jsp" flush="true"/>
      </jsp:attribute>
-
+    
 	<jsp:attribute name="footer">
 			<script>
 				function viewphotomodel(val) {
@@ -47,12 +46,13 @@
 					      <thead>
 					          <tr>
 					              <th class="uk-text-center">ID</th>
-					             	 <th> Name</th>
-					             	 <th> Login</th>
+					             	 <th>Name</th>
+					             	 <th>Login</th>
 									 <th>Password</th>
-									 <th> Email</th>
-									 <th> Phone</th>
-									 <th> Photo</th>
+									 <th>Email</th>
+									 <th>Type</th>
+									 <th>Phone</th>
+									 <th>Photo</th>
 					              <th
 									class="filter-false remove sorter-false uk-text-center"
 									colspan="2" style="width: 50px;">Actions</th>
@@ -68,6 +68,7 @@
 									<td class="uk-text-small">${u.login}</td> 
 									<td class="uk-text-small">${u.password}</td> 
 									<td class="uk-text-small">${u.email} </td> 
+									<td class="uk-text-small"><span class="uk-badge uk-badge-danger">${u.type.description} </span></td> 
 									<td class="uk-text-small">${u.phone} </td> 
 									<td class="uk-text-small">
 										<div class="chat_user_avatar"
