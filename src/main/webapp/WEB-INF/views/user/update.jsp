@@ -24,8 +24,7 @@
 			<script>
 			function viewphotomodel(val)
 			{
-				document.getElementById("zoneimage").src = val;
-				
+				 $("#zoneimage").attr("src",val);
 			}
 			</script>
     </jsp:attribute>
