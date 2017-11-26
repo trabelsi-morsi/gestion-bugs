@@ -15,19 +15,34 @@
         
  <div class="menu_section">
 		 <ul>
-		 	 <li>
+		 
+		     
+                
+		 		<li>
                     <a href="#">
-                        <span class="menu_icon">   
-                        <i class="material-icons" style=" margin-top: -16px; ">&#xE84E;</i></span>
-                       <span class="menu_title">Type</span>
+                        <span class="menu_icon">  
+                        <i class="material-icons" style=" margin-top: -16px; ">bug_report</i></span>
+                        <span class="menu_title">Bug</span>
                     </a>
                     <ul>
- 						<li><a   href="${contextPath}/type/add" >Add Type</a></li>
-                     	<li><a  href="${contextPath}/type/list">List Type</a></li> 
+                        <li><a  href="${contextPath}/bug/add">Add Bug</a></li>
+                        <li><a  href="${contextPath}/bug/list">List Bug</a></li> 
                     </ul>
                 </li>
                 
-			   <li>
+                 <li>
+                    <a href="#">
+                        <span class="menu_icon">  
+                        <i class="material-icons" style=" margin-top: -16px; ">&#xE433;</i></span>
+                        <span class="menu_title">Screenshot</span>
+                    </a>
+                    <ul>
+                        <li><a  href="${contextPath}/screenShot/add">Add Screenshot</a></li>
+                        <li><a  href="${contextPath}/screenShot/list">List Screenshot</a></li> 
+                    </ul>
+                </li>
+                
+		  	    <li>
                     <a href="#">
                         <span class="menu_icon">  
                         <i class="material-icons" style=" margin-top: -16px; ">&#xE8D3;</i></span>
@@ -39,10 +54,34 @@
                     </ul>
                 </li>
                 
+		 		<li>
+                    <a href="#">
+                        <span class="menu_icon">   
+                        <i class="material-icons" style=" margin-top: -16px; ">security</i></span>
+                       <span class="menu_title">Type</span>
+                    </a>
+                    <ul>
+ 						<li><a   href="${contextPath}/type/add" >Add Type</a></li>
+                     	<li><a  href="${contextPath}/type/list">List Type</a></li> 
+                    </ul>
+                </li>
+                
+			   <li>
+                    <a href="#">
+                        <span class="menu_icon">  
+                        <i class="material-icons" style=" margin-top: -16px; ">library_books</i></span>
+                        <span class="menu_title">Project</span>
+                    </a>
+                    <ul>
+                        <li><a  href="${contextPath}/project/add">Add Project</a></li>
+                        <li><a  href="${contextPath}/project/list">List Project</a></li> 
+                    </ul>
+                </li>
+                
                  <li>
                     <a href="#">
                         <span class="menu_icon">  
-                        <i class="material-icons" style=" margin-top: -16px; ">&#xE8D3;</i></span>
+                        <i class="material-icons" style=" margin-top: -16px; ">collections_bookmark</i></span>
                         <span class="menu_title">Category</span>
                     </a>
                     <ul>
@@ -62,27 +101,27 @@
                         <li><a  href="${contextPath}/status/list">List Status</a></li> 
                     </ul>
                 </li>
-                <li>
-                    <a href="#">
-                        <span class="menu_icon">  
-                        <i class="material-icons" style=" margin-top: -16px; ">&#xE0B8;</i></span>
-                        <span class="menu_title">Project</span>
-                    </a>
-                    <ul>
-                        <li><a  href="${contextPath}/project/add">Add Project</a></li>
-                        <li><a  href="${contextPath}/project/list">List Project</a></li> 
-                    </ul>
-                </li>
                 
                 <li>
                     <a href="#">
                         <span class="menu_icon">  
-                        <i class="material-icons" style=" margin-top: -16px; ">&#xE8D3;</i></span>
+                        <i class="material-icons" style=" margin-top: -16px; ">assignment_late</i></span>
                         <span class="menu_title">Priority</span>
                     </a>
                     <ul>
                         <li><a  href="${contextPath}/priority/add">Add Priority</a></li>
                         <li><a  href="${contextPath}/priority/list">List Priority</a></li> 
+                    </ul>
+                </li>
+                 <li>
+                    <a href="#">
+                        <span class="menu_icon">  
+                        <i class="material-icons" style=" margin-top: -16px; ">warning</i></span>
+                        <span class="menu_title">Severity</span>
+                    </a>
+                    <ul>
+                        <li><a  href="${contextPath}/severity/add">Add Severity</a></li>
+                        <li><a  href="${contextPath}/severity/list">List Severity</a></li> 
                     </ul>
                 </li>
                 
