@@ -2,18 +2,17 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-<t:Layout>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<t:Layout> 
 
 	<jsp:attribute name="header">
-        	<jsp:include page="../../basefragments/header_main.jsp"
-			flush="true" />
+        	<jsp:include page="../../basefragments/header_main.jsp" flush="true"/>
     </jsp:attribute>
-
-	<jsp:attribute name="menu">
-			<jsp:include page="../../basefragments/menu.jsp" flush="true" />
+    
+    <jsp:attribute name="menu">
+			<jsp:include page="../../basefragments/menu.jsp" flush="true"/>
      </jsp:attribute>
-
+    
 	<jsp:attribute name="footer">
 			<script>
 				function viewphotomodel(val) {

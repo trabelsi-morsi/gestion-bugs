@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %> 
 <%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <t:Layout> 
 
 	<jsp:attribute name="header">
@@ -13,15 +14,15 @@
     
 	<jsp:attribute name="footer">
 	  		<!-- tablesorter -->
-		    <script src="${pageContext.request.contextPath}/resources/bower_components/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
-		    <script src="${pageContext.request.contextPath}/resources/bower_components/tablesorter/dist/js/jquery.tablesorter.widgets.min.js"></script>
-		    <script src="${pageContext.request.contextPath}/resources/bower_components/tablesorter/dist/js/widgets/widget-alignChar.min.js"></script>
-		    <script src="${pageContext.request.contextPath}/resources/bower_components/tablesorter/dist/js/extras/jquery.tablesorter.pager.min.js"></script>
-		    <script src="${pageContext.request.contextPath}/resources/assets/js/pages/pages_issues.min.js"></script>
+		    <script src="${contextPath}/resources/bower_components/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
+		    <script src="${contextPath}/resources/bower_components/tablesorter/dist/js/jquery.tablesorter.widgets.min.js"></script>
+		    <script src="${contextPath}/resources/bower_components/tablesorter/dist/js/widgets/widget-alignChar.min.js"></script>
+		    <script src="${contextPath}/resources/bower_components/tablesorter/dist/js/extras/jquery.tablesorter.pager.min.js"></script>
+		    <script src="${contextPath}/resources/assets/js/pages/pages_issues.min.js"></script>
 		    <!--  tablesorter functions -->
-		    <script src="${pageContext.request.contextPath}/resources/assets/js/pages/plugins_tablesorter.min.js"></script>
-		    <script src="${pageContext.request.contextPath}/resources/assets/js/pages/components_notifications.min.js"></script>
-		    <script src="${pageContext.request.contextPath}/resources/assets/js/pages/forms_file_upload.min.js"></script>
+		    <script src="${contextPath}/resources/assets/js/pages/plugins_tablesorter.min.js"></script>
+		    <script src="${contextPath}/resources/assets/js/pages/components_notifications.min.js"></script>
+		    <script src="${contextPath}/resources/assets/js/pages/forms_file_upload.min.js"></script>
  	</jsp:attribute>  
      
      
