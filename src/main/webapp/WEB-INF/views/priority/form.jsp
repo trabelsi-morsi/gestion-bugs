@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %> 
-<%@  taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
- 
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>  
+<%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <t:Layout> 
 
 
 		<jsp:attribute name="css">
-	  			 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bower_components/kendo-ui/styles/kendo.common-material.min.css"/>
-  				 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bower_components/kendo-ui/styles/kendo.material.min.css"/>
+	  			 <link rel="stylesheet" href="${contextPath}/resources/bower_components/kendo-ui/styles/kendo.common-material.min.css"/>
+  				 <link rel="stylesheet" href="${contextPath}/resources/bower_components/kendo-ui/styles/kendo.material.min.css"/>
     </jsp:attribute>
     
 	<jsp:attribute name="header">
@@ -21,8 +21,8 @@
     
      
   <jsp:attribute name="footer">
-			<script src="${pageContext.request.contextPath}/resources/assets/js/kendoui_custom.min.js"></script>
-			<script src="${pageContext.request.contextPath}/resources/assets/js/pages/kendoui.min.js"></script>
+			<script src="${contextPath}/resources/assets/js/kendoui_custom.min.js"></script>
+			<script src="${contextPath}/resources/assets/js/pages/kendoui.min.js"></script>
 			<script>
 				function changecolor()
 				{

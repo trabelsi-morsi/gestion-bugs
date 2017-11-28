@@ -33,11 +33,7 @@
                                     <label for="fullname">Description<span class="req">*</span></label>
                                     <input type="text" name="description" required class="md-input" />
                                 </div>
-                            </div>
-                            </div>
-                            
-                            
-                            <div class="uk-grid" data-uk-grid-margin>
+                            </div> 
                                 <div class="uk-width-large-1-2 uk-width-medium-1-1">
                                     <div class="uk-input-group">
                                         <span class="uk-input-group-addon"><i class="uk-input-group-icon uk-icon-calendar"></i></span>
