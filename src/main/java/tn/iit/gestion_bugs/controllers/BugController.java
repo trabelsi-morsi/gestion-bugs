@@ -80,8 +80,8 @@ public class BugController {
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable(name = "id") Long id) {
-		Bug bug = bugRepository.getOne(id);
-		bug.setDeleted(false);
+		Bug bug = bugRepository.findById(id).get();
+		bug.setDeleted(true);
 		bugRepository.saveAndFlush(bug);
 		return "redirect:/bug/list";
 
@@ -92,13 +92,14 @@ public class BugController {
 			@RequestParam("idSeverity") Long idSeverity, @RequestParam("idPriority") Long idPriority,
 			@RequestParam("idStatus") Long idStatus, @RequestParam("idProject") Long idProject,
 			@RequestParam("dateR") String dateRaised, @RequestParam("dateC") String dateClosed,
-			@RequestParam("files") MultipartFile[] screenshots) {
+			@RequestParam("idUser") Long idUser, @RequestParam("files") MultipartFile[] screenshots) {
 
 		bug.setCategory(categoryRepository.findById(idCategory).get());
 		bug.setSeverity(severityRepository.findById(idSeverity).get());
 		bug.setPriority(priorityRepository.findById(idPriority).get());
 		bug.setStatus(statusRepository.findById(idStatus).get());
 		bug.setProject(projectRepository.findById(idProject).get());
+		bug.setUser(userRepository.findById(idUser).get());
 		bug.setTesterId(1L);
 
 		SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
@@ -140,13 +141,18 @@ public class BugController {
 	@RequestMapping(value = "/list")
 	public String list(Model model) {
 		List<BugDTO> bugs = new ArrayList<>();
+		List<BugDTO> deletedBugs = new ArrayList<>();
 
 		for (Bug bug : bugRepository.findAll()) {
-			bugs.add(BugDTO.convertToDTO(bug));
-
+			if (!bug.isDeleted()) {
+				bugs.add(BugDTO.convertToDTO(bug));
+			} else {
+				deletedBugs.add(BugDTO.convertToDTO(bug));
+			}
 		}
-		model.addAttribute("allBugs", bugs);
-		return "list";
+		model.addAttribute("Bugs", bugs);
+		model.addAttribute("deletedBugs", deletedBugs);
+		return "/bug/list";
 
 	}
 

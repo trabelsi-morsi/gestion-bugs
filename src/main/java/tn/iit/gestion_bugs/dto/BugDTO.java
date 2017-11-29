@@ -22,6 +22,7 @@ public class BugDTO {
 	private String category;
 	private String severity;
 	private String priority;
+	private String colorPriority;
 	private String project;
 	private String status;
 	private List<ScreenShot> screenShots;
@@ -38,6 +39,7 @@ public class BugDTO {
 		b.setDeleted(bug.isDeleted());
 		b.setCategory(bug.getCategory().getTitle());
 		b.setPriority(bug.getPriority().getTitle());
+		b.setColorPriority(bug.getPriority().getColor());
 		b.setProject(bug.getProject().getTitle());
 		b.setStatus(bug.getStatus().getTitle());
 		b.setSeverity(bug.getSeverity().getTitle());
@@ -173,5 +175,14 @@ public class BugDTO {
 	public void setScreenShots(List<ScreenShot> screenShots) {
 		this.screenShots = screenShots;
 	}
+
+	public String getColorPriority() {
+		return colorPriority;
+	}
+
+	public void setColorPriority(String colorPriority) {
+		this.colorPriority = colorPriority;
+	}
+	
 
 }

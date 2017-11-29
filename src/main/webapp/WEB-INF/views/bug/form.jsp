@@ -59,9 +59,7 @@
 	                            <select id="select_demo_1" data-md-selectize name="idSeverity">
 	                                <option value="">Select Severity</option>
 									<c:forEach var="u" items="${severities}">
-			                                <option value="${u.id}">
-						<i class="uk-badge uk-badge-danger" style="background-color:${u.color};">${u.title}</i>
-								</option> 
+			                                <option value="${u.id}">${u.title}</option> 
 									</c:forEach>
 	                            </select>
 	                        </div>
@@ -132,13 +130,23 @@
                         	</div>
                         	 
                            <div class="uk-grid data-uk-grid-margin">
-                            <div class="uk-width-large-1-1">
+                            <div class="uk-width-large-1-2">
                                 <div class="parsley-row">
                                     <label for="fullname">Feedback<span class="req">*</span></label>
                                 	<textarea cols="30" rows="4" class="md-input"  name="feedback"> </textarea> 
                                 </div>
                             </div> 
-                        </div>
+                         <div class="uk-width-medium-1-2">
+                                <div class="parsley-row"> 
+	                            <select id="select_demo_1" data-md-selectize name="idUser">
+	                                <option value="">Assign to</option>
+									<c:forEach var="u" items="${users}">
+			                                <option value="${u.id}">${u.name}</option> 
+									</c:forEach>
+	                            </select>
+	                        </div>
+                        	</div>
+                        	</div>
                         <input type="file" name="files" >
                         
                         

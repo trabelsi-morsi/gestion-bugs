@@ -44,7 +44,7 @@ public class Bug implements Serializable {
 	@Column
 	private Long testerId;
 
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "category_id")
 	private Category category;
 

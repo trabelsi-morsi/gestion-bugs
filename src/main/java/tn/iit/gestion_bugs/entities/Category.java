@@ -51,8 +51,6 @@ public class Category implements Serializable {
 		this.description = description;
 	}
 
-	
-
 	public List<Bug> getBugs() {
 		return bugs;
 	}
