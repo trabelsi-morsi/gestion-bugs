@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Bug implements Serializable {
@@ -30,15 +32,19 @@ public class Bug implements Serializable {
 	@Column
 	private String detailSteps;
 	@Column
+	@Temporal(TemporalType.DATE)
 	private Date dateRaised;
-	@Column
+	@Column(nullable = true)
+	@Temporal(TemporalType.DATE)
 	private Date dateClosed;
 	@Column
 	private String feedback;
-	@Column
+	@Column(nullable = true)
 	private boolean isDeleted;
+	@Column
+	private Long testerId;
 
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "category_id")
 	private Category category;
 
@@ -183,6 +189,14 @@ public class Bug implements Serializable {
 
 	public void setScreenShots(List<ScreenShot> screenShots) {
 		this.screenShots = screenShots;
+	}
+
+	public Long getTesterId() {
+		return testerId;
+	}
+
+	public void setTesterId(Long testerId) {
+		this.testerId = testerId;
 	}
 
 	@Override

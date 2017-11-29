@@ -35,7 +35,6 @@ public class PriorityController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
-		model.addAttribute("action", "addPriority");
 		return "/priority/form";
 	}
 

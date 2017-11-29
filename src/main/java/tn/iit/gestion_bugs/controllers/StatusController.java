@@ -33,7 +33,6 @@ public class StatusController {
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String setupAddForm(Model model) {
-		model.addAttribute("action", "addStatus");
 		return "/status/form";
 	}
 
