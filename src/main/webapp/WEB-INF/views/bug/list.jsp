@@ -2,7 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@  taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<c:set var="contextPath" value="${contextPath}" />
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <t:Layout> 
 
 	<jsp:attribute name="header">
@@ -32,6 +32,7 @@
  	</jsp:attribute>
 
 	<jsp:body>
+	
         
      <h3 class="heading_b uk-margin-bottom">List of bugs</h3>
      <div class="md-card">
