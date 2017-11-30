@@ -20,15 +20,7 @@
     </jsp:attribute>
 
 	<jsp:body>
-		<!--	Gestion bugs 
-		<h2>Welcome :  </h2>
-	  <h3>${connectedUser.id }</h3>
-		<h3>${connectedUser.name }</h3>
-		<h3>${connectedUser.login }</h3>
-		<h3>${connectedUser.password }</h3>
-		<h3>${connectedUser.email }</h3>
-		<h3>${connectedUser.phone }</h3>
-		<h3>${connectedUser.photo }</h3>-->
+	 
 		<div class="uk-grid" data-uk-grid-margin data-uk-grid-match id="user_profile">
                 <div class="uk-width-large-7-12">
                     <div class="md-card">

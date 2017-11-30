@@ -5,7 +5,6 @@ import java.util.List;
 
 import tn.iit.gestion_bugs.entities.Bug;
 import tn.iit.gestion_bugs.entities.ScreenShot;
-import tn.iit.gestion_bugs.entities.User;
 
 public class BugDTO {
 
@@ -18,7 +17,7 @@ public class BugDTO {
 	private String feedback;
 	private boolean isDeleted;
 	private String testerName;
-	private User developerName;
+	private String developerName;
 	private String category;
 	private String severity;
 	private String priority;
@@ -37,6 +36,7 @@ public class BugDTO {
 		b.setDateRaised(bug.getDateRaised());
 		b.setFeedback(bug.getFeedback());
 		b.setDeleted(bug.isDeleted());
+		b.setDeveloperName(bug.getUser().getName());
 		b.setCategory(bug.getCategory().getTitle());
 		b.setPriority(bug.getPriority().getTitle());
 		b.setColorPriority(bug.getPriority().getColor());
@@ -120,11 +120,11 @@ public class BugDTO {
 		this.testerName = testerName;
 	}
 
-	public User getDeveloperName() {
+	public String getDeveloperName() {
 		return developerName;
 	}
 
-	public void setDeveloperName(User developerName) {
+	public void setDeveloperName(String developerName) {
 		this.developerName = developerName;
 	}
 
@@ -183,6 +183,5 @@ public class BugDTO {
 	public void setColorPriority(String colorPriority) {
 		this.colorPriority = colorPriority;
 	}
-	
 
 }

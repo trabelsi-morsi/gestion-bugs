@@ -2,6 +2,8 @@ package tn.iit.gestion_bugs.controllers;
 
 import java.security.Principal;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -26,12 +28,13 @@ public class LoginController {
 	}
 
 	@GetMapping("/dashboard")
-	public String dashboard(ModelMap model, Principal principal) {
+	public String dashboard(ModelMap model, HttpSession session,Principal principal) {
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User customUser = (User) authentication.getPrincipal();
 		String userName = customUser.getUsername();
 		model.addAttribute("connectedUser", userRepository.findByLogin(userName));
+		session.setAttribute("connectedUser", userRepository.findByLogin(userName));
 		return "dashboard";
 	}
 
