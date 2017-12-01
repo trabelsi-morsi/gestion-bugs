@@ -304,7 +304,7 @@
 				                                            <span class="uk-text-muted uk-text-small">Project</span>
 				                                        </div>
 				                                        <div class="uk-width-large-2-3">
-				                                            <span class="uk-text-large uk-text-middle"><a href="${contextPath}/project/update/${bug.project.id}">${bug.project.title}</a></span>
+				                                            <span class="uk-text-large uk-text-middle"><a href="${contextPath}/project/consult/${bug.project.id}">${bug.project.title}</a></span>
 				                                        </div>
 				                                    </div>
 													

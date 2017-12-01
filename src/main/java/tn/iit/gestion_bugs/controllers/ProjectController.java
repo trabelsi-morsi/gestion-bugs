@@ -30,7 +30,7 @@ public class ProjectController {
 
 	@RequestMapping(value = "delete/{id}")
 	public String delete(@PathVariable(name = "id") Long id) {
-		projectRepository.delete(projectRepository.getOne(id));
+		projectRepository.delete(projectRepository.findById(id).get());
 		return "redirect:/project/list";
 
 	}
@@ -57,6 +57,13 @@ public class ProjectController {
 		}
 		projectRepository.saveAndFlush(project);
 		return "redirect:/project/list";
+	}
+
+	@RequestMapping(value = "/consult/{id}", method = RequestMethod.GET)
+	public String consult(Model model, @ModelAttribute Project project, @PathVariable(name = "id") Long id) {
+		model.addAttribute("project", projectRepository.findById(id).get());
+		return "project/consult";
+
 	}
 
 }
