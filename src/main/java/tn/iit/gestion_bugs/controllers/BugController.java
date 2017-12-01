@@ -9,6 +9,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import tn.iit.gestion_bugs.dto.BugDTO;
 import tn.iit.gestion_bugs.entities.Bug;
 import tn.iit.gestion_bugs.entities.ScreenShot;
+import tn.iit.gestion_bugs.entities.User;
 import tn.iit.gestion_bugs.repository.BugRepository;
 import tn.iit.gestion_bugs.repository.CategoryRepository;
 import tn.iit.gestion_bugs.repository.PriorityRepository;
@@ -88,7 +91,7 @@ public class BugController {
 	}
 
 	@RequestMapping(value = "/addOrUpdateBug", method = RequestMethod.POST)
-	public String addOrUpdate(@ModelAttribute Bug bug, @RequestParam("idCategory") Long idCategory,
+	public String addOrUpdate(@ModelAttribute Bug bug,HttpSession session,@RequestParam("idCategory") Long idCategory,
 			@RequestParam("idSeverity") Long idSeverity, @RequestParam("idPriority") Long idPriority,
 			@RequestParam("idStatus") Long idStatus, @RequestParam("idProject") Long idProject,
 			@RequestParam("dateR") String dateRaised, @RequestParam("dateC") String dateClosed,
@@ -100,8 +103,9 @@ public class BugController {
 		bug.setStatus(statusRepository.findById(idStatus).get());
 		bug.setProject(projectRepository.findById(idProject).get());
 		bug.setUser(userRepository.findById(idUser).get());
-		bug.setTesterId(1L);
-
+		User tester=(User) session.getAttribute("connectedUser");
+		bug.setTesterId(tester.getId());
+		
 		SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			bug.setDateRaised(formater.parse(dateRaised));
@@ -155,5 +159,26 @@ public class BugController {
 		return "/bug/list";
 
 	}
+	
+	@RequestMapping(value = "/list/{id}", method = RequestMethod.GET)
+	public String listDetails(Model model, @PathVariable(name ="id") Long id) {
+		List<BugDTO> bugs = new ArrayList<>();
+		List<BugDTO> deletedBugs = new ArrayList<>();
+
+		for (Bug bug : bugRepository.findAll()) {
+			if (!bug.isDeleted()) {
+				bugs.add(BugDTO.convertToDTO(bug));
+			} else {
+				deletedBugs.add(BugDTO.convertToDTO(bug));
+			}
+		}
+
+		model.addAttribute("Bugs", bugs);
+		model.addAttribute("bug", bugRepository.findById(id).get());
+		model.addAttribute("deletedBugs", deletedBugs);
+		return "/bug/list";
+
+	}
+	
 
 }
